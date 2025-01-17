@@ -1,0 +1,142 @@
+body {
+  margin: 0;
+  position: relative;
+  align-items: normal;
+  color: black;
+}
+
+#root {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+#root .import {
+  color: white;
+  background-color: gray;
+}
+#root .nav {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: rgb(58, 58, 58);
+  justify-content: center;
+  color: white;
+}
+#root .nav .nav_link {
+  display: block;
+  margin: 0 30px;
+  border: 1px solid white;
+  width: 80px;
+  align-content: center;
+  text-align: center;
+  border-radius: 10px;
+}
+#root .nav .nav_link a {
+  color: white;
+}
+#root .nav .nav_link:visited {
+  color: white;
+}
+#root .nav .searchBar_wrapper {
+  position: relative;
+  display: flex;
+}
+#root .nav .searchBar_wrapper .searchBar {
+  height: 1.5rem;
+  width: 300px;
+  border-radius: 10px;
+  border: none;
+  margin: auto 0;
+}
+#root .nav .searchBar_wrapper .DropDown {
+  width: 300px;
+  max-height: 400px;
+  background-color: white;
+  color: black;
+  top: 35px;
+  position: absolute;
+  overflow-y: scroll;
+}
+#root .nav .searchBar_wrapper .DropDown ul {
+  margin: 0;
+  padding: 0 2px;
+}
+#root .nav .searchBar_wrapper .DropDown ul li .DropDown_item {
+  display: flex;
+  flex-direction: row;
+}
+#root .nav .searchBar_wrapper .DropDown ul li .DropDown_item img {
+  margin: auto;
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin: 0 10px;
+  object-fit: cover;
+}
+#root .nav .searchBar_wrapper .DropDown input:focus {
+  border: 1px solid green;
+}
+#root .nav .searchBar_wrapper .DropDown .search_item {
+  margin: 0;
+  list-style: none;
+  transition: all 0.2s;
+}
+#root .nav .searchBar_wrapper .DropDown .search_item:hover {
+  background-color: rgb(208, 203, 203);
+}
+#root .Main_wrapper {
+  width: 100%;
+  background-color: black;
+}
+#root .Main_wrapper .slider_wrapper {
+  width: 70%;
+  height: 250px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: gray;
+  overflow: auto;
+}
+#root .Main_wrapper .slider_wrapper .slider_item {
+  margin: 10px;
+  height: 230px;
+  width: 230px;
+  display: block;
+}
+#root .Main_wrapper .slider_wrapper .slider_item img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.Country_PopUp {
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  max-width: 600px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.Country_PopUp h1 {
+  font-size: 20px;
+}
+.Country_PopUp .Flag {
+  display: block;
+  width: 200px;
+  margin: 0 20px;
+}
+.Country_PopUp .Flag img {
+  position: relative;
+  max-width: 100%;
+  max-height: 100px;
+  top: 20%;
+  object-fit: fill;
+}
+
+/*# sourceMappingURL=App.css.map */
