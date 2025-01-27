@@ -18,6 +18,9 @@ export default function LoginPage({ setPopUp }: any) {
         alert('username or password is wrong')
         return
       }
+
+      localStorage.setItem("currentUser", JSON.stringify(foundUser))
+
       setCurrUser(foundUser)
       setIsLogingin(true)
       setTimeout(() => {

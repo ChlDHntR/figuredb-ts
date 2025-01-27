@@ -449,14 +449,15 @@
   ],
   "users": [
     {
-      "userID": 0,
       "username": "testuser",
       "pwd": "Farewell",
-      "list": {},
+      "list": {
+        "wishlist": [1,2,3],
+        "owned": [12,5,9]
+      },
       "id": "249e"
     },
     {
-      "userID": 1,
       "username": "AAAA",
       "pwd": "1234",
       "list": {},
@@ -488,7 +489,37 @@
     },
     {
       "id": "2",
-      "children": []
+      "children": [
+        {
+          "id": 1737530334608,
+          "poster": "AAAA",
+          "time": "Jan 03, 2025, 16:18",
+          "content": "123",
+          "children": []
+        },
+        {
+          "id": 1737530197237,
+          "poster": "testuser",
+          "time": "Jan 03, 2025, 16:16",
+          "content": "nice",
+          "children": [
+            {
+              "id": 1737530341767,
+              "poster": "AAAA",
+              "time": "Jan 03, 2025, 16:19",
+              "content": "123",
+              "children": []
+            },
+            {
+              "id": 1737530207271,
+              "poster": "testuser",
+              "time": "Jan 03, 2025, 16:16",
+              "content": "nice x2",
+              "children": []
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "3",

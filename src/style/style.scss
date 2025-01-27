@@ -282,9 +282,44 @@ body {
     }
     .side {
       width: 30%;
-      height: 100px;
-      background-color: white;
+      //  height: 100px;
       margin-top: 2rem;
+      .userList {
+        background-color: white;
+        .title {
+          p {
+            text-align: center;
+          }
+        }
+        .list_wrapper {
+          .list {
+            .list_item {
+              display: flex;
+              flex-direction: row;
+              margin: 6px 0;
+              img {
+                margin: auto 2px;
+                display: block;
+                width: 50px;
+                height: 50px;
+                object-fit: cover;
+              }
+              p {
+                margin: 0;
+                padding: 5px;
+                font-size: 14px;
+              }
+            }
+          }
+          .notLogin {
+            text-align: center;
+          }
+        }
+        .createList {
+          text-align: center;
+
+        }
+      }
     }
   }
   //////////// FIGURE PAGE ////////////

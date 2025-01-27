@@ -13,5 +13,5 @@ server
     createRoot(document.getElementById('root')!).render(<App data={response.data} />)
   })
   .catch((err) => {
-    alert('failed')
+    alert('maybe server is not initiated')
   })

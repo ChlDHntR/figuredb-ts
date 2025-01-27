@@ -15,16 +15,11 @@ library.add(faFire)
 library.add(faStar)
 
 
-function Main({ data } : {data: FigureData[]}) {
-  //const [showPopUp, setShowPopUp] = useState<{ show: false | true, data: String}>({ show: false, data: '' })
-  let popUpData = null
-  // if (showPopUp.show !== '') {
-  //   popUpData = data.find((element) => element.name === showPopUp.data.name)
-  // }
-  const list1: FigureData[] = [], list2: FigureData[] = []
+function Main({ data } : {data: any}) {
+  const list1: any = [], list2: any = []
   const set1 = new Set<any>([])
   for (let i=0; set1.size<=14; i++) {
-    let random = Math.round(Math.random()*data.length)
+    let random = Math.round(Math.random()*(data.length-1))
     if (set1.has(random)) {
       continue
     }

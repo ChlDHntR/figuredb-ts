@@ -2,11 +2,10 @@ import React, { useState, useContext, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconProp, library } from '@fortawesome/fontawesome-svg-core'
 import { faComments } from '@fortawesome/free-solid-svg-icons'
-import { PageIdContext } from './FigurePage'
 import server from '../axios/server'
 import { UserAuthContext } from '../context/UserAuthProvider'
 import { User, CommentDat } from '../interface.type/interface'
-
+import { PageIdContext } from '../context/PageIdProvider'
 library.add(faComments)
 
 class CommentInfo {
@@ -33,7 +32,7 @@ function Comment({ parent, handleReply, commentData, setCommentData, input, setI
       '0'
     )}`
     //let node = { id: Date.now(), poster: user.username, time: commentDate, content: repInput, children: [] }
-    let node = new CommentInfo({id: Date.now(), poster: user.unsername, time: commentDate, content: repInput, children: []})
+    let node = new CommentInfo({id: Date.now(), poster: user.username, time: commentDate, content: repInput, children: []})
     let newData = { ...commentData }
     handleReply(newData, node, parent.id)
     setRepInput('')
@@ -100,7 +99,6 @@ function Comment({ parent, handleReply, commentData, setCommentData, input, setI
 }
 
 export default function CommentSect({}) {
-  //console.log(commentData)
   const [comInput, setComInput] = useState('')
   const pageId = useContext(PageIdContext)
   const [commentData, setCommentData] = useState<any>({})
@@ -115,6 +113,7 @@ export default function CommentSect({}) {
       addNote(element, node, id)
     })
   }
+  
   useEffect(() => {
     server.get(`comments/${pageId}`).then((res) => {
       setIsLoading(false)
@@ -132,7 +131,7 @@ export default function CommentSect({}) {
       2,
       '0'
     )}`
-    let node = new CommentInfo({id: Date.now(), poster: currUser.unsername, time: commentDate, content: comInput, children: []})
+    let node = new CommentInfo({id: Date.now(), poster: currUser.username, time: commentDate, content: comInput, children: []})
     let newData = [...commentData.children]
     newData.splice(0, 0, node)
     setComInput('')

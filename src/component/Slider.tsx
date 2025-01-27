@@ -13,7 +13,7 @@ function Slider({ data, interval }: {data: FigureData[], interval: number}) {
 
   useEffect(() => {
     let sliderRun = setInterval(() => {
-      console.log(boxRef.current.getBoundingClientRect().x)
+      //console.log(boxRef.current.getBoundingClientRect().x)
       let { x: wrapperX } = wrapperRef.current.getBoundingClientRect()
       if (isDown) return
       if (boxRef.current.getBoundingClientRect().x - wrapperX < -250 * (data.length - 6)) return
@@ -68,7 +68,6 @@ function Slider({ data, interval }: {data: FigureData[], interval: number}) {
       //let newPopUp = { show: true, data: element }
       //setShowPopUp(newPopUp)
       navigate(`/figure/${id}`)
-      console.log('click')
     }
   }
 

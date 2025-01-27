@@ -9,6 +9,12 @@ import UserAuthProvider from './context/UserAuthProvider.tsx'
 
 function App({ data }: any) {
   const [currUser, setCurrUser] = useState(null)
+      useEffect(() => {
+        let userdata = localStorage.getItem('currentUser')
+        if (userdata) {  
+          setCurrUser(JSON.parse(userdata))
+        }
+      }, [])
 
   return (
     <UserAuthProvider value={{ currUser, setCurrUser }}>

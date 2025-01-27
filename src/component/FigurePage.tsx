@@ -1,21 +1,18 @@
 import React, { Fragment, useLayoutEffect, useRef, useEffect, useState, createContext, useContext } from 'react'
-import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import CommentSect from './CommentSect.tsx'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faComments } from '@fortawesome/free-solid-svg-icons'
 import { UserAuthContext } from '../context/UserAuthProvider'
-import { User } from '../interface.type/interface.ts'
+import UserList from './UserList.tsx'
+import PageIdProvider from '../context/PageIdProvider.tsx'
 
-export const PageIdContext = createContext<String | null | undefined>(null)
+
 
 export default function FigurePage({ data }: any) {
   const id = useParams().id
   const testData = data.find((element: any) => element.id == id)
   const body = useRef(null)
   const side = useRef(null)
-  const { currUser } = useContext<any>(UserAuthContext)
+  const { currUser } = useContext(UserAuthContext)
 
   // useLayoutEffect(() => {
   //   let left = body.current.getBoundingClientRect().left
@@ -77,11 +74,13 @@ export default function FigurePage({ data }: any) {
             </div>
           </div>
         </div>
-        <PageIdContext.Provider value={id}>
+        <PageIdProvider value={id}>
           <CommentSect />
-        </PageIdContext.Provider>
+        </PageIdProvider>
       </div>
-      <div className='side box' ref={side}></div>
+      <div className='side' ref={side}>
+        <UserList data={data} currUser={currUser}></UserList>
+      </div>
     </div>
   )
 }
