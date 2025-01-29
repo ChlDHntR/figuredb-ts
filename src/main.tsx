@@ -10,7 +10,17 @@ import server from './axios/server.ts'
 server
   .get('figures')
   .then((response) => {
-    createRoot(document.getElementById('root')!).render(<App data={response.data} />)
+    let username = localStorage.getItem('currentUser')
+    let foundUser
+    if (username) {
+      server.get('users').then((response2) => {
+        let userData = response2.data
+        foundUser = userData.find((element: any) => element.username === username)
+        createRoot(document.getElementById('root')!).render(<App user={foundUser} data={response.data} />)
+      })
+    } else {
+      createRoot(document.getElementById('root')!).render(<App user={null} data={response.data} />)
+    }
   })
   .catch((err) => {
     alert('maybe server is not initiated')

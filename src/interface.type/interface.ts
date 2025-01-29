@@ -1,30 +1,28 @@
-
-
 type User = {
-    userID: string,
-    username: string,
-    pwd: string,
-    list: {},
-    id: string
+  userID: string
+  username: string
+  pwd: string
+  list: {}
+  id: string
 }
 
 type FigureData = {
-    id: String,
-    name: String,
-    image: String,     
-    series: String,
-    brand: String,
-    date: String,
-    price: String,
-    about: String
+  id: string
+  name: string
+  image: string
+  series: string
+  brand: string
+  date: string
+  price: string
+  about: string
 }
 
 type CommentDat = {
-    id: String | number,
-    poster: String,
-    time: String,
-    content: String,
-    children: []
+  id: string | number
+  poster: string
+  time: string
+  content: string
+  children: []
 }
 
 export { User, FigureData, CommentDat }

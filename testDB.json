@@ -452,8 +452,21 @@
       "username": "testuser",
       "pwd": "Farewell",
       "list": {
-        "wishlist": [1,2,3],
-        "owned": [12,5,9]
+        "wishlist": [
+          1,
+          2,
+          3
+        ],
+        "owned": [
+          12,
+          5,
+          9
+        ],
+        "new list": [
+          5,
+          7
+        ],
+        "awd": []
       },
       "id": "249e"
     },
@@ -480,6 +493,14 @@
       "username": "34234",
       "pwd": "lol123",
       "list": {}
+    },
+    {
+      "id": "5916",
+      "username": "helpme",
+      "pwd": "1234",
+      "list": {
+        "Wish list": []
+      }
     }
   ],
   "comments": [
@@ -531,7 +552,53 @@
     },
     {
       "id": "5",
-      "children": []
+      "children": [
+        {
+          "id": 1738061191592,
+          "poster": "testuser",
+          "time": "Jan 02, 2025, 19:46",
+          "content": "dfddf",
+          "children": []
+        },
+        {
+          "id": 1738044482894,
+          "poster": "helpme",
+          "time": "Jan 02, 2025, 15:08",
+          "content": "nice",
+          "children": [
+            {
+              "id": 1738044502109,
+              "poster": "helpme",
+              "time": "Jan 02, 2025, 15:08",
+              "content": "L opinion",
+              "children": [
+                {
+                  "id": 1738044506561,
+                  "poster": "helpme",
+                  "time": "Jan 02, 2025, 15:08",
+                  "content": "W opinion",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "id": 1738044487632,
+              "poster": "helpme",
+              "time": "Jan 02, 2025, 15:08",
+              "content": "not nice",
+              "children": [
+                {
+                  "id": 1738044494297,
+                  "poster": "helpme",
+                  "time": "Jan 02, 2025, 15:08",
+                  "content": "hey",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "6",
@@ -875,7 +942,15 @@
     },
     {
       "id": "31",
-      "children": []
+      "children": [
+        {
+          "id": 1738072972991,
+          "poster": "testuser",
+          "time": "Jan 02, 2025, 23:02",
+          "content": "lol",
+          "children": []
+        }
+      ]
     },
     {
       "id": "32",

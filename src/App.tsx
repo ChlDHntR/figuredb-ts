@@ -1,20 +1,22 @@
 import React, { Fragment, useState, useEffect, useRef } from 'react'
 import './style/style.scss'
 import { BrowserRouter as Router, Link, Routes, Route } from 'react-router-dom'
+import server from './axios/server.ts'
 import { Import } from './component/Import.js'
 import Main from './component/Main.tsx'
 import NavBar from './component/Navbar.tsx'
 import FigurePage from './component/FigurePage.tsx'
 import UserAuthProvider from './context/UserAuthProvider.tsx'
 
-function App({ data }: any) {
-  const [currUser, setCurrUser] = useState(null)
-      useEffect(() => {
-        let userdata = localStorage.getItem('currentUser')
-        if (userdata) {  
-          setCurrUser(JSON.parse(userdata))
-        }
-      }, [])
+function App({ user, data }: any) {
+  const [currUser, setCurrUser] = useState(user)
+
+  // useEffect(() => {
+  //   let userdata = localStorage.getItem('currentUser')
+  //   if (userdata) {
+  //     setCurrUser(JSON.parse(userdata))
+  //   }
+  // }, [])
 
   return (
     <UserAuthProvider value={{ currUser, setCurrUser }}>

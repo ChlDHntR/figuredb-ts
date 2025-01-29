@@ -12,8 +12,7 @@ class CommentInfo {
   constructor(params: CommentDat) {
     Object.assign(this, params)
   }
-} 
-
+}
 
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Au', 'Sep', 'Oct', 'Nov', 'Dec']
 
@@ -32,7 +31,13 @@ function Comment({ parent, handleReply, commentData, setCommentData, input, setI
       '0'
     )}`
     //let node = { id: Date.now(), poster: user.username, time: commentDate, content: repInput, children: [] }
-    let node = new CommentInfo({id: Date.now(), poster: user.username, time: commentDate, content: repInput, children: []})
+    let node = new CommentInfo({
+      id: Date.now(),
+      poster: user.username,
+      time: commentDate,
+      content: repInput,
+      children: [],
+    })
     let newData = { ...commentData }
     handleReply(newData, node, parent.id)
     setRepInput('')
@@ -50,13 +55,15 @@ function Comment({ parent, handleReply, commentData, setCommentData, input, setI
           <span className='date'>{parent.time}</span>
         </div>
         <p className='content'>{parent.content}</p>
-        <button
-          onClick={() => {
-            setIsReplying((prev) => !prev)
-          }}
-        >
-          返事
-        </button>
+        <div className='reply_btn'>
+          <button
+            onClick={() => {
+              setIsReplying((prev) => !prev)
+            }}
+          >
+            返事
+          </button>
+        </div>
       </div>
       {isReplying ? (
         <div className='reply_input'>
@@ -104,16 +111,16 @@ export default function CommentSect({}) {
   const [commentData, setCommentData] = useState<any>({})
   const [isLoading, setIsLoading] = useState(true)
   const { currUser }: any = useContext(UserAuthContext)
-  const addNote = (tree: any, node: CommentInfo, id: any) => {
+  const addNode = (tree: any, node: CommentInfo, id: any) => {
     if (tree.id == id) {
       tree.children.splice(0, 0, node)
       return
     }
     tree.children.map((element: any) => {
-      addNote(element, node, id)
+      addNode(element, node, id)
     })
   }
-  
+
   useEffect(() => {
     server.get(`comments/${pageId}`).then((res) => {
       setIsLoading(false)
@@ -131,7 +138,13 @@ export default function CommentSect({}) {
       2,
       '0'
     )}`
-    let node = new CommentInfo({id: Date.now(), poster: currUser.username, time: commentDate, content: comInput, children: []})
+    let node = new CommentInfo({
+      id: Date.now(),
+      poster: currUser.username,
+      time: commentDate,
+      content: comInput,
+      children: [],
+    })
     let newData = [...commentData.children]
     newData.splice(0, 0, node)
     setComInput('')
@@ -181,7 +194,7 @@ export default function CommentSect({}) {
                 commentData={commentData}
                 setCommentData={setCommentData}
                 input={comInput}
-                handleReply={addNote}
+                handleReply={addNode}
                 setInput={setComInput}
                 user={currUser}
               />
