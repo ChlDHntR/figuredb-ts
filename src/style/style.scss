@@ -297,9 +297,21 @@ body {
             margin: 10px;
             background-color: #eeeeee;
             border-radius: 5px;
-            .list_label {
+            height: auto;
+            overflow: hidden;
+            transition: all 0.8s;
+            .list_header {
               display: flex;
               justify-content: space-between;
+              height: 1.5rem;
+              .plus:hover {
+                color: green;
+                cursor: pointer;
+              }
+              .caret_down:hover {
+                color: green;
+                cursor: pointer;
+              }
             }
             .list_item {
               display: flex;
@@ -565,6 +577,27 @@ body {
   border-radius: 4px;
 }
 
+.logout_btn {
+  position: fixed;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  background-color: #1976d2;
+  color: white;
+  bottom: 10px;
+  right: 10px;
+  z-index: 100;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logout_btn:hover {
+  opacity: 0.8s;
+  cursor: pointer;
+}
+
 .fa-comments {
   font-size: 20px;
   margin: auto 0;
@@ -579,5 +612,19 @@ body {
 }
 
 .caret_down {
-  transform: rotate(180deg);
+  transition: all 0.22s;
+}
+
+.flash_message {
+  width: 300px;
+  background-color: green;
+  color: white;
+  border-radius: 5px;
+  position: fixed;
+  z-index: 1000;
+  animation: 3s infinite alternate slide-in;
+  p {
+    font-size: 2rem;
+    padding: 5px;
+  }
 }

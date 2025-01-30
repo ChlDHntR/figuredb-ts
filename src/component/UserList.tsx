@@ -1,9 +1,20 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, {
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react'
 import server from '../axios/server'
-import { User } from '../interface.type/interface'
+import { PageIdContext } from '../context/PageIdProvider'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconProp, library } from '@fortawesome/fontawesome-svg-core'
-import { faLessThanEqual, faPlus, faCaretDown } from '@fortawesome/free-solid-svg-icons'
+import {
+  faLessThanEqual,
+  faPlus,
+  faCaretDown,
+} from '@fortawesome/free-solid-svg-icons'
+import { FlashMessageContext } from '../context/FlashMessageProvider'
 
 library.add(faPlus)
 library.add(faCaretDown)
@@ -13,6 +24,8 @@ export default function UserList({ data, currUser }: any) {
   const [isCreatingList, setIsCreatingList] = useState(false)
   const [forceReRen, setForceReRen] = useState({})
   const inputRef = useRef<HTMLInputElement>(null)
+  const id = useContext(PageIdContext)
+  const { messageAlert } = useContext(FlashMessageContext)
 
   useEffect(() => {
     if (currUser) {
@@ -41,28 +54,49 @@ export default function UserList({ data, currUser }: any) {
     }
   }
 
+  const handleAddToList = (listname: string) => {
+    let updateUserList = {...currUser}
+    if (updateUserList.list[listname].includes(id)) return
+    updateUserList.list[listname].push(Number(id))
+    server.put(`users/${currUser.id}`, updateUserList)
+    setForceReRen({})
+    messageAlert('Item successfully added to list', true)
+  }
+
   return (
-    <div className='userList box'>
-      <div className='title'>
-        <p>MANAGE LIST</p>
+    <div className="userList box">
+      <div className="title">
+        <p>ADD THIS ITEM TO LIST</p>
       </div>
       {currUser ? (
-        <div className='list_wrapper'>
+        <div className="list_wrapper">
           {Object.keys(currUser.list).map((listName) => (
-            <div className='list' key={listName}>
-              <div className='list_label'>
+            <div className="list" key={listName}>
+              <div className="list_header">
                 <p>{listName}</p>
-                <div className='caret_down'>
-                  <FontAwesomeIcon
-                    onClick={() => handleShowList(listName)}
-                    icon={faCaretDown as IconProp}
-                  ></FontAwesomeIcon>
+                <div style={{display: 'flex', width: '2rem', justifyContent: 'space-between'}}>
+                  <div className="plus" onClick={() => handleAddToList(listName)} >
+                    <FontAwesomeIcon icon={faPlus} />
+                  </div>
+                  <div
+                    className="caret_down"
+                    style={
+                      showList[listName]
+                        ? { transform: 'rotate(180deg)' }
+                        : { transform: 'rotate(0deg)' }
+                    }
+                  >
+                    <FontAwesomeIcon
+                      onClick={() => handleShowList(listName)}
+                      icon={faCaretDown as IconProp}
+                    />
+                  </div>
                 </div>
               </div>
               {showList[listName] &&
                 currUser.list[listName].map((item: any) => (
-                  <div className='list_item' key={item}>
-                    <img src={data[item - 1].image} alt='' />
+                  <div className="list_item" key={item}>
+                    <img src={data[item - 1].image} alt="" />
                     <p>{data[item - 1].name}</p>
                   </div>
                 ))}
@@ -70,12 +104,12 @@ export default function UserList({ data, currUser }: any) {
           ))}
         </div>
       ) : (
-        <h1 className='notLogin'>NOT LOGGED IN</h1>
+        <h1 className="notLogin">NOT LOGGED IN</h1>
       )}
       {isCreatingList &&
         (currUser ? (
-          <div className='createList_input'>
-            <input type='text' ref={inputRef} />
+          <div className="createList_input">
+            <input type="text" ref={inputRef} />
             <button onClick={handleCreateList}>ADD</button>
           </div>
         ) : (
@@ -85,7 +119,7 @@ export default function UserList({ data, currUser }: any) {
         onClick={() => {
           setIsCreatingList((prev) => !prev)
         }}
-        className='createList'
+        className="createList"
       >
         <FontAwesomeIcon icon={faPlus} />
       </div>

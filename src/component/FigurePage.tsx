@@ -1,4 +1,12 @@
-import React, { Fragment, useLayoutEffect, useRef, useEffect, useState, createContext, useContext } from 'react'
+import React, {
+  Fragment,
+  useLayoutEffect,
+  useRef,
+  useEffect,
+  useState,
+  createContext,
+  useContext,
+} from 'react'
 import { useParams } from 'react-router-dom'
 import CommentSect from './CommentSect.tsx'
 import { UserAuthContext } from '../context/UserAuthProvider'
@@ -19,17 +27,17 @@ export default function FigurePage({ data }: any) {
   //   side.current.style.right = `${left}px`
   // })
   return (
-    <div className='figure_page' ref={body}>
-      <div className='wide'>
-        <div className='figureData_wrapper box'>
-          <div className='figure_name'>
+    <div className="figure_page" ref={body}>
+      <div className="wide">
+        <div className="figureData_wrapper box">
+          <div className="figure_name">
             <p>{testData.name}</p>
           </div>
-          <div className='figureData'>
-            <div className='figure_image'>
+          <div className="figureData">
+            <div className="figure_image">
               <img src={testData.image} alt={`${testData.name} image`} />
             </div>
-            <div className='figure_info'>
+            <div className="figure_info">
               <table>
                 <tbody>
                   <tr>
@@ -77,9 +85,11 @@ export default function FigurePage({ data }: any) {
           <CommentSect />
         </PageIdProvider>
       </div>
-      <div className='side' ref={side}>
-        <UserList data={data} currUser={currUser}></UserList>
-      </div>
+      <PageIdProvider value={id}>
+        <div className="side" ref={side}>
+          <UserList data={data} currUser={currUser}></UserList>
+        </div>
+      </PageIdProvider>
     </div>
   )
 }
