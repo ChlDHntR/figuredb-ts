@@ -56,7 +56,11 @@ export default function UserList({ data, currUser }: any) {
 
   const handleAddToList = (listname: string) => {
     let updateUserList = {...currUser}
-    if (updateUserList.list[listname].includes(id)) return
+    console.log(updateUserList.list[listname].includes(id))
+    if (updateUserList.list[listname].includes(Number(id))) {
+      messageAlert('Item existed in list', false)
+      return
+    }
     updateUserList.list[listname].push(Number(id))
     server.put(`users/${currUser.id}`, updateUserList)
     setForceReRen({})

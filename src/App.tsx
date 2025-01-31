@@ -12,7 +12,9 @@ import FlashMessageProvider from './context/FlashMessageProvider.tsx'
 function App({ user, data }: any) {
   const [currUser, setCurrUser] = useState(user)
   const [messageOn, setMessageOn] = useState(false)
-  const alertMessage = useRef('')
+  const alertMessage = useRef('testing')
+  const flashRef = useRef<HTMLDivElement>(null)
+  const alertColorRef = useRef('')
   // useEffect(() => {
   //   let userdata = localStorage.getItem('currentUser')
   //   if (userdata) {
@@ -25,19 +27,37 @@ function App({ user, data }: any) {
     setCurrUser(null)
   }
 
+  useEffect(() => {
+    if (messageOn) {
+      flashRef.current!.style.opacity = '0'
+      flashRef.current!.style.bottom = '0'
+      setTimeout(() => {
+        flashRef.current!.style.opacity = '1'
+        flashRef.current!.style.bottom = '50px'
+      }, 100)
+    }
+
+  }, [messageOn])
+  
   const messageAlert = (message: string, type: string) => {
     alertMessage.current = message
+    alertColorRef.current = type ? 'green' : 'red'
     setMessageOn(true)
-    setTimeout(() => {
-      setMessageOn(false)
-    }, 5000)
+    async function name() {
+      let opacityChange = setTimeout(() => {
+      }, 3500)
+    }
+
+
+////// CONTINUE HERE!! CODE NOT RUNNING!!
+
   }
 
   return (
     <UserAuthProvider value={{ currUser, setCurrUser }}>
       <FlashMessageProvider value={{ messageAlert }}>
         {messageOn && (
-          <div className="flash_message">
+          <div ref={flashRef} className={`flash_message`} style={{backgroundColor: alertColorRef.current}}>
             <p>{alertMessage.current}</p>
           </div>
         )}
