@@ -8,17 +8,16 @@ import TopRLoginBtn from './TopRLoginBtn.js'
 import { UserAuthContext } from '../context/UserAuthProvider.js'
 import LoginPage from './LoginPage.js'
 import { FigureData, User } from '../interface.type/interface.ts'
+import { LoginInitContext } from '../context/LoginInitProvider.tsx'
 
-function NavBar({ data } : {data: FigureData[]}) {
+function NavBar({ data }: { data: FigureData[] }) {
   const navigate = useNavigate()
   const [searchValue, setSearchValue] = useState('')
   const [searchList, setSearchList] = useState<FigureData[]>([])
   const [showdrop, setShowdrop] = useState(true)
-  const [popUp, setPopUp] = useState(false)
   const [isFocus, setIsFocus] = useState(false)
   const { currUser }: any = useContext(UserAuthContext)
-
-  const currentPopUp = useRef<any>(null)
+  const setPopUp: any = useContext(LoginInitContext)
 
   const handleSearch = useCallback(
     (e: any) => {
@@ -38,12 +37,6 @@ function NavBar({ data } : {data: FigureData[]}) {
     [data]
   )
 
-  const onClick = (name: String) => {
-    currentPopUp.current = data.find((element) => element.name === name)
-    console.log(currentPopUp.current)
-    setPopUp(true)
-  }
-
   const handleFocus = () => {
     setIsFocus(true)
   }
@@ -51,19 +44,15 @@ function NavBar({ data } : {data: FigureData[]}) {
     setIsFocus(false)
   }
   const handleLoginBtn = () => {
-    setPopUp(true)
+    setPopUp({ state: true, action: 'login' })
   }
 
   return (
     <Fragment>
-      {popUp && (
-        <PopUp
-          handleClose={() => setPopUp(false)}
-          children={<LoginPage setPopUp={setPopUp} />}
-        />
-      )}
       <div className='nav'>
-        <h1 onClick={() => navigate('/')}>FigureDB</h1>
+        <a className='logo' href='/'>
+          <h1>FigureDB</h1>
+        </a>
         <div className='multi'>
           <div className='searchBar_wrapper'>
             <InputBar

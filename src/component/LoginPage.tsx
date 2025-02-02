@@ -2,13 +2,16 @@ import React, { useState, useContext, useRef } from 'react'
 import { UserAuthContext } from '../context/UserAuthProvider'
 import server from '../axios/server.ts'
 import { User } from '../interface.type/interface.ts'
+import { FlashMessageContext } from '../context/FloatMessageProvider.tsx'
 
-export default function LoginPage({ setPopUp }: any) {
+export default function LoginPage({ setPopUp, popUp }: any) {
   const username = useRef<HTMLInputElement>(null)
   const pwd = useRef<HTMLInputElement>(null)
+  const reEnterPwd = useRef<HTMLInputElement>(null)
   const { setCurrUser }: any = useContext(UserAuthContext)
   const [isLogingin, setIsLogingin] = useState(false)
-  const [register, setRegister] = useState(false)
+  const [register, setRegister] = useState(popUp.action === 'register' ? true : false)
+  const { messageAlert } = useContext(FlashMessageContext)
 
   const handleLogin = () => {
     server.get('users').then((response) => {
@@ -29,6 +32,10 @@ export default function LoginPage({ setPopUp }: any) {
     })
   }
   const handleRegister = () => {
+    if (pwd.current !== reEnterPwd.current) {
+      messageAlert('Password does not match', false)
+      return
+    }
     let newUser = {
       username: username.current!.value,
       pwd: pwd.current!.value,
@@ -60,22 +67,54 @@ export default function LoginPage({ setPopUp }: any) {
                 handleLogin()
               }}
             >
-              <div className='input'>
-                <fieldset>
-                  <legend>USERNAME</legend>
-                  <input type='text' ref={username} />
-                </fieldset>
-              </div>
-              <div className='input'>
-                <fieldset>
-                  <legend>PASSWORD</legend>
-                  <input type='password' ref={pwd} />
-                </fieldset>
-              </div>
-              {register ? <button>登録</button> : <button>ログイン</button>}
+              {!register ? (
+                <>
+                  <div className='input'>
+                    <fieldset>
+                      <legend>USERNAME</legend>
+                      <input name={!register ? 'loginName' : 'registerName'} type='text' ref={username} />
+                    </fieldset>
+                  </div>
+                  <div className='input'>
+                    <fieldset>
+                      <legend>PASSWORD</legend>
+                      <input name={!register ? 'loginPwd' : 'registerPwd'} type='password' ref={pwd} />
+                    </fieldset>
+                  </div>
+                  <button>ログイン</button>
+                </>
+              ) : (
+                <>
+                  <div className='input'>
+                    <fieldset>
+                      <legend>USERNAME</legend>
+                      <input name={!register ? 'loginName' : 'registerName'} type='text' ref={username} />
+                    </fieldset>
+                  </div>
+                  <div className='input'>
+                    <fieldset>
+                      <legend>PASSWORD</legend>
+                      <input name={!register ? 'loginPwd' : 'registerPwd'} type='password' ref={pwd} />
+                    </fieldset>
+                  </div>
+                  <div className='input'>
+                    <fieldset>
+                      <legend>RE-ENTER PASSWORD</legend>
+                      <input name={!register ? 'loginPwd' : 'registerPwd'} type='password' ref={reEnterPwd} />
+                    </fieldset>
+                  </div>
+                  <button>登録</button>
+                </>
+              )}
             </form>
             <div className='register_button'>
-              <button onClick={() => setRegister((prev) => !prev)}>{register ? 'ログイン' : '登録'}</button>
+              <button
+                onClick={() => {
+                  setRegister((prev) => !prev)
+                }}
+              >
+                {register ? 'ログイン' : '登録'}
+              </button>
             </div>
           </>
         )}

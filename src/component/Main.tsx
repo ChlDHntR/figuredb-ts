@@ -4,31 +4,29 @@ import { PopUp } from './PopUp'
 import { IconProp, library } from '@fortawesome/fontawesome-svg-core'
 import { faComments, faFire, faStar } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  IconLookup,
-  IconDefinition,
-  findIconDefinition
-} from '@fortawesome/fontawesome-svg-core'
+import { IconLookup, IconDefinition, findIconDefinition } from '@fortawesome/fontawesome-svg-core'
 import { FigureData } from '../interface.type/interface'
+import Banner from './Banner'
 
 library.add(faFire)
 library.add(faStar)
 
-
-function Main({ data } : {data: any}) {
-  const list1: any = [], list2: any = []
+function Main({ data }: { data: any }) {
+  const list1: any = [],
+    list2: any = []
   const set1 = new Set<any>([])
-  for (let i=0; set1.size<=14; i++) {
-    let random = Math.round(Math.random()*(data.length-1))
+  for (let i = 0; set1.size <= 14; i++) {
+    let random = Math.round(Math.random() * (data.length - 1))
     if (set1.has(random)) {
       continue
     }
     set1.add(random)
   }
-  set1.forEach(value => list1.push(data[value]))
+  set1.forEach((value) => list1.push(data[value]))
 
   return (
     <div className='Main_wrapper'>
+      <Banner></Banner>
       <div className='popular_slider'>
         <h1>
           <FontAwesomeIcon icon={faFire as IconProp} />
