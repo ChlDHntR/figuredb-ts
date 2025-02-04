@@ -27,7 +27,7 @@ body {
     align-items: center;
     position: relative;
     background-color: #2b2d42;
-    justify-content: space-between;
+    justify-content: center;
     color: white;
     .logo {
       color: white;
@@ -352,9 +352,11 @@ body {
       margin-top: 2rem;
       .userList {
         background-color: white;
+        padding: 10px;
         .title {
           p {
             text-align: center;
+            font-weight: bold;
           }
         }
         .list_wrapper {
@@ -587,7 +589,7 @@ body {
     .children_wrapper {
       //margin-top: 10px;
       display: flex;
-      border-left: 1px solid rgb(61, 142, 219);
+      border-left: 1px solid #2b2d42;
 
       .padding {
         width: 3%;
@@ -686,7 +688,7 @@ body {
   color: white;
   border-radius: 5px;
   position: fixed;
-  z-index: 1000;
+  z-index: 0;
   transition: all 0.5s;
   left: 50%;
   transform: translateX(-50%);
@@ -702,4 +704,5 @@ body {
 .open {
   opacity: 1;
   top: 50px;
+  z-index: 1;
 }

@@ -59,7 +59,7 @@ export default function UserList({ data, currUser }: any) {
   return (
     <div className='userList box'>
       <div className='title'>
-        <p>ADD THIS ITEM TO LIST</p>
+        <p>コレクションに追加</p>
       </div>
       {currUser ? (
         <div className='list_wrapper'>
@@ -92,7 +92,7 @@ export default function UserList({ data, currUser }: any) {
       ) : (
         <h1 className='notLogin'>NOT LOGGED IN</h1>
       )}
-      {isCreatingList &&
+      {/* {isCreatingList &&
         (currUser ? (
           <div className='createList_input'>
             <input type='text' ref={inputRef} />
@@ -108,7 +108,7 @@ export default function UserList({ data, currUser }: any) {
         className='createList'
       >
         <FontAwesomeIcon icon={faPlus} />
-      </div>
+      </div> */}
     </div>
   )
 }

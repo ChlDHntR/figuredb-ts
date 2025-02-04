@@ -75,9 +75,6 @@ function NavBar({ data }: { data: FigureData[] }) {
             )}
           </div>
           <TopRLoginBtn user={currUser} onLogin={handleLoginBtn} />
-          <div className='nav_link'>
-            <Link to='/import'>IMPORT</Link>
-          </div>
         </div>
       </div>
     </Fragment>

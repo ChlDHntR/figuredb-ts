@@ -72,7 +72,7 @@ function Slider({ data, interval }: { data: FigureData[]; interval: number }) {
   }
 
   return (
-    <div ref={wrapperRef} className='slider_wrapper_wrapper'>
+    <div ref={wrapperRef} id='slider' className='slider_wrapper_wrapper'>
       <div ref={boxRef} onMouseDown={handleMouseDown} className={sliderClass.current} style={{ left: '0px' }}>
         {data.map((element) => (
           <div onMouseUp={() => handleItemMouseUp(element.id)} key={`${element.name}`} className='slider_item'>
