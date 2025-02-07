@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconProp, library } from '@fortawesome/fontawesome-svg-core'
-import { faComments } from '@fortawesome/free-solid-svg-icons'
+import { faComments, faRunning } from '@fortawesome/free-solid-svg-icons'
 import server from '../axios/server'
 import { UserAuthContext } from '../context/UserAuthProvider'
 import { User, CommentDat } from '../interface.type/interface'
@@ -125,6 +125,7 @@ export default function CommentSect({}) {
     server.get(`comments/${pageId}`).then((res) => {
       setIsLoading(false)
       setCommentData(res.data)
+      console.log('running')
     })
   }, [])
   if (isLoading) return <div className='comment_section box'>IS LOADING</div>

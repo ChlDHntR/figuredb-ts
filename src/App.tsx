@@ -10,8 +10,8 @@ import { PopUp } from './component/PopUp.tsx'
 import LoginInitProvider from './context/LoginInitProvider.tsx'
 import UserAuthProvider from './context/UserAuthProvider.tsx'
 import FloatMessage from './component/FloatMessage.tsx'
-
 import LoginPage from './component/LoginPage.tsx'
+import TradingPage from './component/TradingPage.tsx'
 
 function App({ user, data }: any) {
   const [currUser, setCurrUser] = useState(user)
@@ -23,13 +23,17 @@ function App({ user, data }: any) {
     setCurrUser(null)
   }
 
+  const handleClosePopUp = () => {
+    setPopUp((prev) => ({ ...prev, state: false }))
+  }
+
   return (
     <UserAuthProvider value={{ currUser, setCurrUser }}>
       <FloatMessage>
         <LoginInitProvider value={setPopUp}>
           {popUp.state && (
             <PopUp
-              handleClose={() => setPopUp((prev) => ({ ...prev, state: false }))}
+              handleClose={handleClosePopUp}
               children={<LoginPage setPopUp={setPopUp} popUp={popUp} />}
             />
           )}
@@ -53,6 +57,15 @@ function App({ user, data }: any) {
                   <>
                     <NavBar data={data} />
                     <FigurePage data={data} />
+                  </>
+                }
+              />
+              <Route
+                path='/trade'
+                element={
+                  <>
+                    <NavBar data={data} />
+                    <TradingPage data={data} />
                   </>
                 }
               />

@@ -8,7 +8,6 @@ import PageIdProvider from '../context/PageIdProvider.tsx'
 export default function FigurePage({ data }: any) {
   const id = useParams().id
   const testData = data.find((element: any) => element.id == id)
-  const body = useRef(null)
   const side = useRef(null)
   const { currUser } = useContext(UserAuthContext)
   //console.log(currUser)
@@ -18,7 +17,7 @@ export default function FigurePage({ data }: any) {
   //   side.current.style.right = `${left}px`
   // })
   return (
-    <div className='figure_page' ref={body}>
+    <div className='figure_page'>
       <div className='wide'>
         <div className='figureData_wrapper box'>
           <div className='figure_name'>

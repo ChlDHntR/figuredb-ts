@@ -1,4 +1,12 @@
-import React, { Fragment, useContext, useState, useEffect, useRef, useMemo, useCallback } from 'react'
+import React, {
+  Fragment,
+  useContext,
+  useState,
+  useEffect,
+  useRef,
+  useMemo,
+  useCallback,
+} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { InputBar } from './SearchBar.tsx'
 import { DropDown } from './DropDown.tsx'
@@ -26,7 +34,9 @@ function NavBar({ data }: { data: FigureData[] }) {
         setShowdrop(false)
         return
       }
-      let newList = data.filter((element) => element.name.toLowerCase().includes(e.target.value.toLowerCase()))
+      let newList = data.filter((element) =>
+        element.name.toLowerCase().includes(e.target.value.toLowerCase())
+      )
       setSearchList([...newList])
       if (newList.length >= 8) {
         setShowdrop(true)
@@ -49,15 +59,25 @@ function NavBar({ data }: { data: FigureData[] }) {
 
   return (
     <Fragment>
-      <div className='nav'>
-        <a className='logo' href='/'>
+      <div className="nav">
+        <a className="logo" href="/">
           <h1>FigureDB</h1>
         </a>
-        <div className='multi'>
-          <div className='searchBar_wrapper'>
+
+        <div className="links">
+          <div className="link">
+            <a href="/trade">TRADE</a>
+          </div>
+          <div className="link">
+            <a href="/upload">UPLOAD</a>
+          </div>
+        </div>
+
+        <div className="multi">
+          <div className="searchBar_wrapper">
             <InputBar
               value={searchValue}
-              placeholder={'キーワード検索'}
+              placeholder={'キーワード検索🔍'}
               className={'searchBar'}
               handleSearch={handleSearch}
               handleFocus={handleFocus}
