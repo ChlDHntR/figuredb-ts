@@ -13,6 +13,8 @@ export default function LoginPage({ setPopUp, popUp }: any) {
   const [register, setRegister] = useState(popUp.action === 'register' ? true : false)
   const { messageAlert } = useContext(FlashMessageContext)
 
+  console.log(popUp.action)
+
   const handleLogin = () => {
     server.get('users').then((response) => {
       let userData = response.data
@@ -32,7 +34,7 @@ export default function LoginPage({ setPopUp, popUp }: any) {
     })
   }
   const handleRegister = () => {
-    if (pwd.current !== reEnterPwd.current) {
+    if (pwd.current!.value !== reEnterPwd.current!.value) {
       messageAlert('Password does not match', false)
       return
     }

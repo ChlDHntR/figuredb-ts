@@ -1,19 +1,27 @@
-import React, { MouseEventHandler, useState } from 'react'
+import React, { MouseEventHandler, useContext, useState } from 'react'
 import { User } from '../interface.type/interface'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconProp, library } from '@fortawesome/fontawesome-svg-core'
-import { faUser, faCaretDown } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faCaretDown, faArrowRightFromBracket, faL } from '@fortawesome/free-solid-svg-icons'
 import GeneralDropDown from './GeneralDropDown'
+import { UserAuthContext } from '../context/UserAuthProvider'
+import { FlashMessageContext } from '../context/FloatMessageProvider'
+import { LoginInitContext } from '../context/LoginInitProvider'
 
 library.add(faUser)
 
-type Props = {
-  user: User
-  onLogin: MouseEventHandler
-}
-export default function TopRLoginBtn({ user, onLogin }: Props) {
+export default function TopRLoginBtn({ user }: any) {
   const [showDrop, setShowDrop] = useState(false)
-  
+  const { setCurrUser } = useContext(UserAuthContext)
+  const { messageAlert } = useContext(FlashMessageContext)
+  const setPopUp: any = useContext(LoginInitContext)
+
+  const handleLogOut = () => {
+    setCurrUser(null)
+    localStorage.clear()
+    messageAlert('ログアウトしました', true)
+  }
+
   const handleMouseEnter = () => {
     setShowDrop(true)
   }
@@ -22,30 +30,47 @@ export default function TopRLoginBtn({ user, onLogin }: Props) {
     setShowDrop(false)
   }
 
+  const onLogin = () => {
+    setPopUp({ state: true, action: 'login' })
+  }
+
+  const onSignUp = () => {
+    setPopUp({ state: true, action: 'register' })
+  }
 
   return (
-    <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="TopRLoginBtn">
+    <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className='TopRLoginBtn'>
       {user ? (
         <>
-          <div className="nav-user">
+          <div className='nav-user'>
             <div>
               <FontAwesomeIcon icon={faUser} />
-              <FontAwesomeIcon className="user-caret-down" icon={faCaretDown} />
+              <FontAwesomeIcon className='user-caret-down' icon={faCaretDown} />
             </div>
           </div>
           {showDrop && (
             <GeneralDropDown>
-              <>
-                <div>Hello</div>
-                <div>Test</div>
-                <div>Unit</div>
-              </>
+              <div className='DropDown-wrapper'>
+                <div className='profile-btn'>
+                  <FontAwesomeIcon icon={faUser} />
+                  <p>プロフィール</p>
+                </div>
+                <div onClick={handleLogOut} className='logout-btn'>
+                  <FontAwesomeIcon icon={faArrowRightFromBracket} />
+                  <p>ログアウト</p>
+                </div>
+              </div>
             </GeneralDropDown>
           )}
         </>
       ) : (
-        <div className="loginBtn" onClick={onLogin}>
-          ログイン
+        <div className='loginBtn'>
+          <div className='login' onClick={onLogin}>
+            <p>ログイン</p>
+          </div>
+          <div className='signup' onClick={onSignUp}>
+            <p>登録</p>
+          </div>
         </div>
       )}
     </div>

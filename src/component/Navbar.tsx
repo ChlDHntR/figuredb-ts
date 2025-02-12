@@ -1,12 +1,4 @@
-import React, {
-  Fragment,
-  useContext,
-  useState,
-  useEffect,
-  useRef,
-  useMemo,
-  useCallback,
-} from 'react'
+import React, { Fragment, useContext, useState, useEffect, useRef, useMemo, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { InputBar } from './SearchBar.tsx'
 import { DropDown } from './DropDown.tsx'
@@ -34,9 +26,7 @@ function NavBar({ data }: { data: FigureData[] }) {
         setShowdrop(false)
         return
       }
-      let newList = data.filter((element) =>
-        element.name.toLowerCase().includes(e.target.value.toLowerCase())
-      )
+      let newList = data.filter((element) => element.name.toLowerCase().includes(e.target.value.toLowerCase()))
       setSearchList([...newList])
       if (newList.length >= 8) {
         setShowdrop(true)
@@ -53,28 +43,25 @@ function NavBar({ data }: { data: FigureData[] }) {
   const handleBlur = () => {
     setIsFocus(false)
   }
-  const handleLoginBtn = () => {
-    setPopUp({ state: true, action: 'login' })
-  }
 
   return (
     <Fragment>
-      <div className="nav">
-        <a className="logo" href="/">
+      <div className='nav'>
+        <a className='logo' href='/'>
           <h1>FigureDB</h1>
         </a>
 
-        <div className="links">
-          <div className="link">
-            <a href="/trade">TRADE</a>
+        <div className='links'>
+          <div className='link'>
+            <a href='/trade'>TRADE</a>
           </div>
-          <div className="link">
-            <a href="/upload">UPLOAD</a>
+          <div className='link'>
+            <a href='/upload'>UPLOAD</a>
           </div>
         </div>
 
-        <div className="multi">
-          <div className="searchBar_wrapper">
+        <div className='multi'>
+          <div className='searchBar_wrapper'>
             <InputBar
               value={searchValue}
               placeholder={'キーワード検索🔍'}
@@ -94,7 +81,7 @@ function NavBar({ data }: { data: FigureData[] }) {
               ></DropDown>
             )}
           </div>
-          <TopRLoginBtn user={currUser} onLogin={handleLoginBtn} />
+          <TopRLoginBtn user={currUser} />
         </div>
       </div>
     </Fragment>

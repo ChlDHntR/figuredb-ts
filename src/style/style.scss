@@ -10,11 +10,18 @@ body {
   margin: 0;
 }
 
+textarea {
+  border: 0;
+  padding: 0;
+  background-color: #eeeeee;
+  resize: none;
+}
+
 #root {
   background-color: #eeeeee;
   width: 100%;
   height: 100%;
-  min-height: 900px;
+  min-height: 1080px;
   margin: 0;
   .import {
     color: white;
@@ -70,7 +77,6 @@ body {
       width: 400px;
       display: flex;
       justify-content: end;
-      
     }
 
     .link a {
@@ -109,7 +115,6 @@ body {
         background-color: #eeeeee;
         color: rgb(68, 68, 68);
         width: 150px;
-
       }
       .DropDown {
         width: 304px;
@@ -160,6 +165,7 @@ body {
     .TopRLoginBtn {
       border-radius: 10px;
       text-align: center;
+      position: relative;
       .nav-user {
         display: flex;
         justify-content: center;
@@ -179,17 +185,84 @@ body {
       }
       .DropDown {
         background-color: #eeeeee;
-        transform: translateY(-20%);
+        transform: translateY(-20%) translateX(-20%);
         text-align: left;
         position: absolute;
         z-index: 100;
+        width: 140%;
+        padding: 10px;
+        display: flex;
+        .profile-btn {
+          display: flex;
+          font-size: 1rem;
+          gap: 0.5rem;
+          flex-direction: row;
+          margin-bottom: 5px;
+          opacity: 0.7;
+          transition: all 0.3s;
+          .fa-user {
+            font-size: 1rem;
+            padding: 3px;
+            width: 16px;
+          }
+        }
+        .profile-btn:hover {
+          opacity: 1;
+          cursor: pointer;
+        }
+        .logout-btn {
+          display: flex;
+          font-size: 1rem;
+          gap: 0.5rem;
+          flex-direction: row;
+          opacity: 0.7;
+          transition: all 0.3s;
+          .fa-arrow-right-from-bracket {
+            font-size: 1rem;
+            padding: 3px;
+            width: 16px;
+          }
+        }
+        .logout-btn:hover {
+          opacity: 1;
+          cursor: pointer;
+        }
       }
       .loginBtn {
-        margin: 0 1rem;
+        margin: 0 0.5rem;
+        display: flex;
+        height: 100%;
+        align-items: center;
+        flex-direction: row;
+        .login {
+          color: #eeeeee;
+          font-weight: bold;
+          opacity: 0.8;
+          transition: all 0.3s;
+        }
+        .login:hover {
+          opacity: 1;
+          cursor: pointer;
+        }
+        .signup {
+          display: flex;
+          flex-direction: row;
+          color: white;
+          background-color: #3577ff;
+          font-weight: bold;
+          height: 50%;
+          align-items: center;
+          padding: 0 20px 0 20px;
+          border-radius: 6px;
+          opacity: 0.8;
+          transition: all 0.3s;
+          margin-left: 1rem;
+        }
+        .signup:hover {
+          opacity: 1;
+          cursor: pointer;
+        }
       }
-    }
-    .TopRLoginBtn:hover {
-      cursor: pointer;
     }
 
     .user {
@@ -451,9 +524,10 @@ body {
           margin: 0 10px 0 10px;
           display: flex;
           font-size: 1rem;
-          font-weight: bold;
+          //font-weight: bold;
           .fa-plus {
             line-height: normal;
+            font-weight: normal;
           }
         }
 
@@ -470,9 +544,9 @@ body {
     }
   }
   //////////// FIGURE PAGE ////////////
-  
+
   //////////// TRADING PAGE ///////////
-  
+
   .trading-page {
     display: flex;
     width: 1280px;
@@ -487,7 +561,6 @@ body {
         background-color: white;
         margin-bottom: 50px;
         .poster {
-
         }
         .trading-items {
           display: flex;
@@ -496,7 +569,7 @@ body {
           .arrow {
             align-self: center;
             font-size: 3rem;
-            color:  #eeeeee;
+            color: #eeeeee;
           }
           .item-grid {
             background-color: #eeeeee;
@@ -537,7 +610,7 @@ body {
                       width: 100%;
                       height: 100%;
                     }
-                  } 
+                  }
                 }
               }
             }
@@ -549,7 +622,6 @@ body {
       width: 20%;
       //  height: 100px;
       margin-top: 2rem;
-
     }
   }
 
@@ -639,6 +711,7 @@ body {
   margin-top: 2rem;
   background-color: white;
   margin-bottom: 100px;
+  padding: 20px;
   .label {
     display: flex;
     flex-direction: row;
@@ -703,7 +776,7 @@ body {
         }
       }
       .content {
-        font-size: 26px;
+        font-size: 20px;
         padding: 0 10px;
         color: black;
       }
@@ -829,14 +902,14 @@ body {
   transform: translateX(-50%);
   opacity: 0;
   text-align: center;
-  top: -1000px;
+  top: -500px;
   p {
     font-size: 1rem;
     padding: 5px;
   }
 }
 
-.open {
+.flash_message.open {
   opacity: 1;
   top: 50px;
   z-index: 1;
