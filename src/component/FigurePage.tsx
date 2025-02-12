@@ -4,6 +4,7 @@ import CommentSect from './CommentSect.tsx'
 import { UserAuthContext } from '../context/UserAuthProvider'
 import UserList from './UserList.tsx'
 import PageIdProvider from '../context/PageIdProvider.tsx'
+import PhotoContainer from './PhotoContainer.tsx'
 
 export default function FigurePage({ data }: any) {
   const id = useParams().id
@@ -78,6 +79,7 @@ export default function FigurePage({ data }: any) {
       <PageIdProvider value={id}>
         <div className='side' ref={side}>
           <UserList data={data} currUser={currUser}></UserList>
+          <PhotoContainer />
         </div>
       </PageIdProvider>
     </div>

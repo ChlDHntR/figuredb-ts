@@ -979,5 +979,11 @@
       "time": "Jan 02, 2025, 23:02",
       "status": "listing"
     }
+  ],
+  "UserPhotos": [
+    {
+      "id": "30",
+      "photoLinks": ["https://img.amiami.com/images/product/main/204/FIGURE-120105.jpg", "https://img.amiami.com/images/product/main/241/FIGURE-168099.jpg","https://img.amiami.com/images/product/main/241/FIGURE-168099.jpg","https://img.amiami.com/images/product/main/241/FIGURE-168099.jpg","https://img.amiami.com/images/product/main/241/FIGURE-168099.jpg","https://img.amiami.com/images/product/main/241/FIGURE-168099.jpg","https://img.amiami.com/images/product/main/241/FIGURE-168099.jpg","https://img.amiami.com/images/product/main/241/FIGURE-168099.jpg"]
+    }
   ]
 }
