@@ -18,11 +18,6 @@ function App({ user, data }: any) {
   const [messageOn, setMessageOn] = useState(false)
   const [popUp, setPopUp] = useState({ state: false, action: 'register' })
 
-  const handleLogout = () => {
-    localStorage.clear()
-    setCurrUser(null)
-  }
-
   const handleClosePopUp = () => {
     setPopUp((prev) => ({ ...prev, state: false }))
   }
@@ -32,14 +27,8 @@ function App({ user, data }: any) {
       <FloatMessage>
         <LoginInitProvider value={setPopUp}>
           {popUp.state && (
-            <PopUp
-              handleClose={handleClosePopUp}
-              children={<LoginPage setPopUp={setPopUp} popUp={popUp} />}
-            />
+            <PopUp handleClose={handleClosePopUp} children={<LoginPage setPopUp={setPopUp} popUp={popUp} />} />
           )}
-          <div className='logout_btn' onClick={handleLogout}>
-            <span>OUT</span>
-          </div>
           <Router>
             <Routes>
               <Route

@@ -14,7 +14,7 @@ class CommentInfo {
   }
 }
 
-const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Au', 'Sep', 'Oct', 'Nov', 'Dec']
+const months = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '1月', '12月']
 
 function Comment({ parent, handleReply, commentData, setCommentData, input, setInput, user }: any) {
   const pageId = useContext(PageIdContext)
@@ -23,13 +23,10 @@ function Comment({ parent, handleReply, commentData, setCommentData, input, setI
 
   const handleReplyButton = () => {
     let date = new Date()
-    let commentDate = `${months[date.getMonth()]} ${String(date.getDay()).padStart(
+    let commentDate = ` ${date.getFullYear()}, ${months[date.getMonth()]} ${String(date.getDay()).padStart(
       2,
       '0'
-    )}, ${date.getFullYear()}, ${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(
-      2,
-      '0'
-    )}`
+    )}, ${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`
     //let node = { id: Date.now(), poster: user.username, time: commentDate, content: repInput, children: [] }
     let node = new CommentInfo({
       id: Date.now(),
@@ -72,6 +69,7 @@ function Comment({ parent, handleReply, commentData, setCommentData, input, setI
             placeholder={user === null ? 'ログインしてください' : 'コメント。。。'}
             value={repInput}
             onChange={(e) => setRepInput(e.target.value)}
+            style={{ resize: 'none' }}
           />
           <button disabled={user === null ? true : false} onClick={handleReplyButton}>
             送信
@@ -132,13 +130,10 @@ export default function CommentSect({}) {
 
   const handlePostComment = () => {
     let date = new Date()
-    let commentDate = `${months[date.getMonth()]} ${String(date.getDay()).padStart(
+    let commentDate = `${date.getFullYear()}, ${months[date.getMonth()]} ${String(date.getDay()).padStart(
       2,
       '0'
-    )}, ${date.getFullYear()}, ${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(
-      2,
-      '0'
-    )}`
+    )}, ${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`
     let node = new CommentInfo({
       id: Date.now(),
       poster: currUser.username,
@@ -167,6 +162,7 @@ export default function CommentSect({}) {
           placeholder={currUser === null ? 'ログインしてください' : 'コメント。。。'}
           value={comInput}
           onChange={(e) => setComInput(e.target.value)}
+          style={{ resize: 'none' }}
         />
         <button disabled={currUser === null ? true : false} onClick={handlePostComment}>
           送信
