@@ -588,6 +588,24 @@ textarea {
     .wide {
       width: 75%;
       margin-top: 2rem;
+      .add-trade-btn {
+        background-color: #f0f0f0;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        padding: 20px;
+        text-align: center;
+        cursor: pointer;
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+        h3 {
+          margin: 0;
+          font-size: 1.5em;
+          color: #333;
+        }
+      }
+      .add-trade-btn:hover {
+        background-color: #e0e0e0;
+        border-color: #bbb;
+      }
       .trading-card-wrapper {
         padding: 20px;
         background-color: white;
@@ -654,6 +672,10 @@ textarea {
         padding: 20px;
         background-color: white;
         margin-bottom: 50px;
+        .heading {
+          text-align: center;
+          margin-bottom: 10px;
+        }
         .trading-items {
           display: flex;
           justify-content: space-between;
@@ -669,6 +691,17 @@ textarea {
             grid-template-columns: repeat(4, 1fr);
             grid-template-rows: auto;
             width: 45%;
+            .new-item {
+              .item-image {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+              }
+              .item-image:hover {
+                cursor: pointer;
+              }
+            }
             .searchBar_wrapper {
               position: absolute;
               //display: flex;
@@ -688,10 +721,11 @@ textarea {
                 background-color: #2b2d42;
               }
               .searchBar:focus {
-                outline: none;
-                background-color: #eeeeee;
-                color: rgb(68, 68, 68);
-                width: 150px;
+                //outline: none;
+                //background-color: #eeeeee;
+                //color: rgb(68, 68, 68);
+                color: white;
+                //width: 150px;
               }
               .DropDown {
                 width: 304px;
@@ -777,6 +811,37 @@ textarea {
               }
             }
           }
+        }
+      }
+      .op-btn {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        .add-btn, .cancel-btn {
+          flex: 1;
+          padding: 10px;
+          text-align: center;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+        }
+        
+        .add-btn {
+          background-color: #4caf50; /* Green background */
+          color: white;
+          margin-right: 10px;
+        }
+        
+        .add-btn:hover {
+          background-color: #45a049;
+        }
+        .cancel-btn {
+          background-color: #f44336; /* Red background */
+          color: white;
+          margin-left: 10px;
+        }
+        .cancel-btn:hover {
+          background-color: #e53935;
         }
       }
     }
