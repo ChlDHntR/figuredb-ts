@@ -15,20 +15,20 @@ export default function PhotoContainer() {
     })
   }, [])
 
-  let genData = []
-  for (let i = 1; i <= 32; i++) {
-    genData.push({
-      id: `${i}`,
-      photoLinks: [],
-    })
-  }
+  // let genData = []
+  // for (let i = 1; i <= 32; i++) {
+  //   genData.push({
+  //     id: `${i}`,
+  //     photoLinks: [],
+  //   })
+  // }
 
-  console.log(JSON.stringify(genData))
+  // console.log(JSON.stringify(genData))
 
   if (isLoading)
     return (
-      <div className='photo-container box'>
-        <div className='title'>
+      <div className="photo-container box">
+        <div className="title">
           <p>写真集</p>
         </div>
         <p>LOADING</p>
@@ -36,17 +36,20 @@ export default function PhotoContainer() {
     )
 
   return (
-    <div className='photo-container box'>
-      <div className='title'>
-        <p>写真集</p>
+      <div className="photo-container box">
+        <div className="title">
+          <p>写真集</p>
+        </div>
+        <div
+          className="photo-grid-wrapper"
+          style={{ overflowY: photoData.current![12] ? 'scroll' : 'hidden' }}
+        >
+          <section className="photo-grid">
+            {photoData.current!.map((link, index) => (
+              <img key={index} src={link} />
+            ))}
+          </section>
+        </div>
       </div>
-      <div className='photo-grid-wrapper' style={{ overflowY: photoData.current![12] ? 'scroll' : 'hidden' }}>
-        <section className='photo-grid'>
-          {photoData.current!.map((link, index) => (
-            <img key={index} src={link} />
-          ))}
-        </section>
-      </div>
-    </div>
   )
 }
