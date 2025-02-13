@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRightLong } from '@fortawesome/free-solid-svg-icons'
 import GeneralDropDown from './GeneralDropDown'
-import { tracingChannel } from 'diagnostics_channel'
 
 export default function TradingCard({ tradeInfo, figureData }: any) {
   const [showDrop, setShowDrop] = useState({ left: null, right: null })
@@ -23,7 +22,7 @@ export default function TradingCard({ tradeInfo, figureData }: any) {
         key={index}
         onMouseEnter={() => handleMouseEnter(index, side)}
         onMouseLeave={handleMouseLeave}
-        style={{ backgroundImage: `url(${figureData[item].image})` }}
+        style={{ backgroundImage: `url(${figureData[item-1].image})` }}
         className='item-image'
       >
         {/* <img src={image} alt="" /> */}

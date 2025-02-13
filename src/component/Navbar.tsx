@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useState, useEffect, useRef, useMemo, useCallback } from 'react'
+import React, { Fragment, useContext, useState, useEffect, useRef, useMemo, useCallback, act } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { InputBar } from './SearchBar.tsx'
 import { DropDown } from './DropDown.tsx'
@@ -13,7 +13,7 @@ import { LoginInitContext } from '../context/LoginInitProvider.tsx'
 function NavBar({ data }: { data: FigureData[] }) {
   const navigate = useNavigate()
   const [searchValue, setSearchValue] = useState('')
-  const [searchList, setSearchList] = useState<FigureData[]>([])
+  const [searchList, setSearchList] = useState<any>([])
   const [showdrop, setShowdrop] = useState(true)
   const [isFocus, setIsFocus] = useState(false)
   const { currUser }: any = useContext(UserAuthContext)
@@ -28,11 +28,11 @@ function NavBar({ data }: { data: FigureData[] }) {
       }
       let newList = data.filter((element) => element.name.toLowerCase().includes(e.target.value.toLowerCase()))
       setSearchList([...newList])
-      if (newList.length >= 8) {
+      // if (newList.length >= 8) {
+      //   setShowdrop(true)
+      // } else {
         setShowdrop(true)
-      } else {
-        setShowdrop(true)
-      }
+      //}
     },
     [data]
   )
@@ -78,6 +78,7 @@ function NavBar({ data }: { data: FigureData[] }) {
                   setSearchValue('')
                   setSearchList([])
                 }}
+                activeUseNavigate={true}
               ></DropDown>
             )}
           </div>

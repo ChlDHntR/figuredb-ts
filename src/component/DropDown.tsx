@@ -1,24 +1,24 @@
 import React, { useNavigate } from 'react-router-dom'
-import { FigureData } from '../interface.type/interface'
 
-function DropDown({ data, handleClick }: any) {
+function DropDown({ data, handleClick, activeUseNavigate }: any) {
   const navigate = useNavigate()
   return (
-    <div className='DropDown'>
+    <div className="DropDown">
       <ul>
-        {data.map((element: FigureData) => (
+        {data.map((element: any) => (
           <li
             onClick={(e) => {
               e.preventDefault()
-              console.log(element.id)
-              navigate(`/figure/${element.id}`)
-              handleClick()
+              if (activeUseNavigate) {
+                navigate(`/figure/${element.id}`)
+              }
+              handleClick(element.id)  //Change this to handleClick(element.id) to pass the id of the element to the parent component
             }}
-            className='search_item'
+            className="search_item"
             key={`${element.name}`}
           >
-            <div className='DropDown_item'>
-              <img src={element.image} alt='' />
+            <div className="DropDown_item">
+              <img src={element.image} alt="" />
               <p>{element.name}</p>
             </div>
           </li>
