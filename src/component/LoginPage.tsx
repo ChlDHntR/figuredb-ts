@@ -115,7 +115,7 @@ export default function LoginPage({ setPopUp, popUp }: any) {
                   setRegister((prev) => !prev)
                 }}
               >
-                {register ? 'ログイン' : '登録'}
+                {register ? 'ログインへ' : '登録へ'}
               </button>
             </div>
           </>

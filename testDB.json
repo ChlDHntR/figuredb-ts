@@ -255,6 +255,7 @@
       "name": "S.H.Figuarts Deadpool ",
       "image": "https://img.amiami.com/images/product/main/243/FIGURE-173812.jpg",
       "brand": "S.H. Figuarts",
+      "series": "Marvel",
       "date": "2024-12-15",
       "price": "8400",
       "about": "【セット内容】 本体 交換用ハンドパーツ 左・右×各9 交換用アイパーツ 左・右×各3 剣×2 鞘パーツ 銃×2 ホルスター×2 ナイフ ナイフケース ヘッドプール ヘッドプール支柱パーツ"
@@ -452,26 +453,9 @@
       "username": "testuser",
       "pwd": "Farewell",
       "list": {
-        "wishlist": [
-          1,
-          2,
-          3,
-          4,
-          7,
-          5,
-          30
-        ],
-        "owned": [
-          12,
-          5,
-          9,
-          4
-        ],
-        "new list": [
-          5,
-          7,
-          4
-        ]
+        "wishlist": [1, 2, 3, 4, 7, 5, 30],
+        "owned": [12, 5, 9, 4],
+        "new list": [5, 7, 4]
       },
       "id": "249e"
     },
@@ -512,9 +496,7 @@
       "username": "abc",
       "pwd": "123",
       "list": {
-        "欲しいリスト": [
-          13
-        ]
+        "欲しいリスト": [13]
       }
     },
     {
@@ -522,10 +504,7 @@
       "username": "qwer",
       "pwd": "1234",
       "list": {
-        "欲しいリスト": [
-          3,
-          13
-        ]
+        "欲しいリスト": [3, 13]
       }
     }
   ],
@@ -1043,93 +1022,56 @@
     {
       "id": "zxcv",
       "poster": "testuser",
-      "have": [
-        1,
-        2,
-        3
-      ],
-      "want": [
-        4,
-        5,
-        6
-      ],
+      "have": [1, 2, 3],
+      "want": [4, 5, 6],
       "time": "2025, 1月 02, 23:02",
       "status": "open"
     },
     {
       "id": "qwer",
       "poster": "AAAA",
-      "have": [
-        20,
-        12,
-        7
-      ],
-      "want": [
-        21,
-        15,
-        17,
-        18
-      ],
+      "have": [20, 12, 7],
+      "want": [21, 15, 17, 18],
       "time": "2025, 1月 02, 23:02",
       "status": "close"
     },
     {
       "id": "dc10",
       "poster": "testuser",
-      "have": [
-        "21"
-      ],
-      "want": [
-        "20"
-      ],
+      "have": ["21"],
+      "want": ["20"],
       "time": "2025, 2月 04, 16:22",
       "status": "open"
     },
     {
       "id": "60e2",
       "poster": "testuser",
-      "have": [
-        "25"
-      ],
-      "want": [
-        "31"
-      ],
+      "have": ["25"],
+      "want": ["31"],
       "time": "2025, 2月 04, 16:38",
       "status": "open"
     },
     {
       "id": "9807",
       "poster": "testuser",
-      "have": [
-        "6"
-      ],
-      "want": [
-        "10"
-      ],
+      "have": ["6"],
+      "want": ["10"],
       "time": "2025, 2月 04, 16:39",
       "status": "open"
     },
     {
       "id": "6db4",
       "poster": "testuser",
-      "have": [
-        "14"
-      ],
-      "want": [
-        "15"
-      ],
+      "have": ["14"],
+      "want": ["15"],
       "time": "2025, 2月 04, 16:41",
       "status": "open"
     },
     {
       "id": "095e",
       "poster": "testuser",
-      "have": [
-        "3"
-      ],
-      "want": [
-        "3"
-      ],
+      "have": ["3"],
+      "want": ["3"],
       "time": "2025, 2月 04, 16:46",
       "status": "open"
     }
