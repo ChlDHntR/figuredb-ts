@@ -12,6 +12,7 @@ import UserAuthProvider from './context/UserAuthProvider.tsx'
 import FloatMessage from './component/FloatMessage.tsx'
 import LoginPage from './component/LoginPage.tsx'
 import TradingPage from './component/TradingPage.tsx'
+import UploadPage from './component/UploadPage.tsx'
 
 function App({ user, data }: any) {
   const [currUser, setCurrUser] = useState(user)
@@ -55,6 +56,15 @@ function App({ user, data }: any) {
                   <>
                     <NavBar data={data} />
                     <TradingPage data={data} />
+                  </>
+                }
+              />
+              <Route
+                path='/upload'
+                element={
+                  <>
+                    <NavBar data={data} />
+                    <UploadPage data={data} />
                   </>
                 }
               />
