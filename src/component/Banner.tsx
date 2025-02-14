@@ -3,12 +3,13 @@ import { IconProp, library } from '@fortawesome/fontawesome-svg-core'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { LoginInitContext } from '../context/LoginInitProvider'
+import { UserAuthContext } from '../context/UserAuthProvider'
 
 library.add(faChevronRight)
 
 export default function Banner() {
   const setPopUp = useContext(LoginInitContext)
-
+  const { currUser } = useContext(UserAuthContext)
   return (
     <div className='banner box'>
       <h1 className='heading'>フィギュアコレクションへのゲートウェイ</h1>
@@ -48,12 +49,14 @@ export default function Banner() {
           </div>
         </div>
       </div>
-      <div onClick={() => setPopUp({ state: true, action: 'register' })} className='signup-btn'>
-        <p>参加！</p>
-        <div className='fa-icon-container'>
-          <FontAwesomeIcon icon={faChevronRight as IconProp} />
+      {currUser === null && (
+        <div onClick={() => setPopUp({ state: true, action: 'register' })} className='signup-btn'>
+          <p>参加！</p>
+          <div className='fa-icon-container'>
+            <FontAwesomeIcon icon={faChevronRight as IconProp} />
+          </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }
