@@ -1,4 +1,5 @@
-import React, { useNavigate } from 'react-router-dom'
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function DropDown({ data, handleClick, activeUseNavigate }: any) {
   const navigate = useNavigate()
