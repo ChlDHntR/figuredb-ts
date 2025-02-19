@@ -16,7 +16,10 @@ function Slider({ data, interval }: { data: FigureData[]; interval: number }) {
       //console.log(boxRef.current.getBoundingClientRect().x)
       let { x: wrapperX } = wrapperRef.current.getBoundingClientRect()
       if (isDown) return
-      if (boxRef.current.getBoundingClientRect().x - wrapperX < -250 * (data.length - 6)) return
+      if (boxRef.current.getBoundingClientRect().x - wrapperX < -250 * (data.length - 6)) {
+        boxRef.current.style.left = `${0}px`
+        return
+      }
       boxRef.current.style.left = `${boxRef.current.getBoundingClientRect().x - wrapperX - 250}px`
     }, interval)
     window.addEventListener('mousemove', handleMouseMove)
@@ -72,20 +75,22 @@ function Slider({ data, interval }: { data: FigureData[]; interval: number }) {
   }
 
   return (
-    <div ref={wrapperRef} id='slider' className='slider_wrapper_wrapper'>
-      <div ref={boxRef} onMouseDown={handleMouseDown} className={sliderClass.current} style={{ left: '0px' }}>
-        {data.map((element) => (
-          <div onMouseUp={() => handleItemMouseUp(element.id)} key={`${element.name}`} className='slider_item'>
-            <img draggable={false} src={element.image} alt='' />
-            <div className='slider_item_info'>
-              <p className='name'>{element.name}</p>
-              <div style={{ padding: '0 5px' }}>
-                <div className='series'>{element.series}</div>
-                <div className='brand'>{element.brand}</div>
+    <div className='slider_wrapper_wrapper'>
+      <div ref={wrapperRef} className='slider_wrapper_wrapper_son'>
+        <div ref={boxRef} onMouseDown={handleMouseDown} className={sliderClass.current} style={{ left: '0px' }}>
+          {data.map((element) => (
+            <div onMouseUp={() => handleItemMouseUp(element.id)} key={`${element.name}`} className='slider_item'>
+              <img draggable={false} src={element.image} alt='' />
+              <div className='slider_item_info'>
+                <p className='name'>{element.name}</p>
+                <div style={{ padding: '0 5px' }}>
+                  <div className='series'>{element.series}</div>
+                  <div className='brand'>{element.brand}</div>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   )

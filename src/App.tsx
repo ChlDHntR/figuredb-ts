@@ -13,6 +13,7 @@ import FloatMessage from './component/FloatMessage.tsx'
 import LoginPage from './component/LoginPage.tsx'
 import TradingPage from './component/TradingPage.tsx'
 import UploadPage from './component/UploadPage.tsx'
+import { SocketProvider } from './context/SocketProvider.tsx'
 
 function App({ user, data }: any) {
   const [currUser, setCurrUser] = useState(user)
@@ -25,6 +26,7 @@ function App({ user, data }: any) {
 
   return (
     <UserAuthProvider value={{ currUser, setCurrUser }}>
+      {/* <SocketProvider> */}
       <FloatMessage>
         <LoginInitProvider value={setPopUp}>
           {popUp.state && (
@@ -74,6 +76,7 @@ function App({ user, data }: any) {
           </Router>
         </LoginInitProvider>
       </FloatMessage>
+      {/* </SocketProvider> */}
     </UserAuthProvider>
   )
 }
