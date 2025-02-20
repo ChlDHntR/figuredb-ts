@@ -30,8 +30,10 @@ function Import({ data }: any) {
     }
     setFigureList((prev: any) => [...prev, name])
 
-    server.post('comments', {id: `${figureList.length + 1}`, "children": []})
     server.post('figures', newData).then((response) => alert('success'))
+    server.post('comments', {id: `${figureList.length + 1}`, "children": []})
+    server.post('UserPhotos', {id: `${figureList.length + 1}`, "photoLinks": []})
+    
   }
 
   return (
