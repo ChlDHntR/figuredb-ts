@@ -22,7 +22,7 @@ export default function TradingCard({ tradeInfo, figureData }: any) {
         key={index}
         onMouseEnter={() => handleMouseEnter(index, side)}
         onMouseLeave={handleMouseLeave}
-        style={{ backgroundImage: `url(${figureData[item-1].image})` }}
+        style={{ backgroundImage: `url(${figureData[item - 1].image})` }}
         className='item-image'
       >
         {/* <img src={image} alt="" /> */}
@@ -30,10 +30,10 @@ export default function TradingCard({ tradeInfo, figureData }: any) {
           <GeneralDropDown>
             <div className='figure-general-info'>
               <div className='image'>
-                <img src={figureData[item].image} alt='' />
+                <img src={figureData[item - 1].image} alt='' />
               </div>
-              <p>{figureData[item].name}</p>
-              <a href={`/figure/${item + 1}`} target='_blank' rel='noopener noreferrer'>
+              <p>{figureData[item - 1].name}</p>
+              <a href={`/figure/${item * 1}`} target='_blank' rel='noopener noreferrer'>
                 詳細
               </a>
             </div>
@@ -45,7 +45,10 @@ export default function TradingCard({ tradeInfo, figureData }: any) {
   return (
     <div className='trading-card-wrapper box'>
       <div className='trading-card'>
-        <h3 className='poster'>{tradeInfo.poster}</h3>
+        <div className='header'>
+          <h3 className='poster'>{tradeInfo.poster}</h3>
+          <p className='date'>{tradeInfo.time}</p>
+        </div>
         <div className='trading-items'>
           <div className='item-grid left'>{itemMap(leftList, 'left')}</div>
           <div className='arrow'>

@@ -24,14 +24,14 @@ export default function TradingPage({ data }: any) {
   return (
     <div className='trading-page'>
       <div className='wide'>
-        {addTrade ?
-          <AddTradeCard figureData={data} setAddTrade={setAddTrade} forceReRender={() => setFrieren({})}/>
-        : <div className="add-trade-btn box" style={{marginBottom: '20px'}} onClick={() => setAddTrade(true)}>
-          <h3>Add trade</h3>
-        </div>
-        }
-        {
-        reversedData.map((item: any) => (
+        {addTrade ? (
+          <AddTradeCard figureData={data} setAddTrade={setAddTrade} forceReRender={() => setFrieren({})} />
+        ) : (
+          <div className='add-trade-btn box' style={{ marginBottom: '20px' }} onClick={() => setAddTrade(true)}>
+            <h3>交換オッファーを作成</h3>
+          </div>
+        )}
+        {reversedData.map((item: any) => (
           <TradingCard key={item.id} tradeInfo={{ ...item }} figureData={data} />
         ))}
       </div>
