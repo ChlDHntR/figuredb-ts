@@ -7,6 +7,7 @@ import GeneralDropDown from './GeneralDropDown'
 import { UserAuthContext } from '../context/UserAuthProvider'
 import { FlashMessageContext } from '../context/FloatMessageProvider'
 import { LoginInitContext } from '../context/LoginInitProvider'
+import { useNavigate } from 'react-router-dom'
 
 library.add(faUser)
 
@@ -15,6 +16,7 @@ export default function TopRLoginBtn({ user }: any) {
   const { setCurrUser } = useContext(UserAuthContext)
   const { messageAlert } = useContext(FlashMessageContext)
   const setPopUp: any = useContext(LoginInitContext)
+  const navigate = useNavigate()
 
   const handleLogOut = () => {
     setCurrUser(null)
@@ -38,6 +40,10 @@ export default function TopRLoginBtn({ user }: any) {
     setPopUp({ state: true, action: 'register' })
   }
 
+  const handleUser = () => {
+    navigate('/profile')
+  }
+
   return (
     <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className='TopRLoginBtn'>
       {user ? (
@@ -51,9 +57,9 @@ export default function TopRLoginBtn({ user }: any) {
           {showDrop && (
             <GeneralDropDown>
               <div className='DropDown-wrapper'>
-                <div className='profile-btn'>
+                <div className='profile-btn' onClick={handleUser}>
                   <FontAwesomeIcon icon={faUser} />
-                  <p>プロフィール</p>
+                  <p>ユーザー</p>
                 </div>
                 <div onClick={handleLogOut} className='logout-btn'>
                   <FontAwesomeIcon icon={faArrowRightFromBracket} />

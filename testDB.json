@@ -453,47 +453,7 @@
       "username": "testuser",
       "pwd": "Farewell",
       "list": {
-        "wishlist": [
-          1,
-          2,
-          3,
-          4,
-          7,
-          5,
-          30
-        ],
-        "owned": [
-          12,
-          5,
-          9,
-          4,
-          3
-        ],
-        "new list": [
-          5,
-          7,
-          4,
-          3
-        ],
-        "new list 2": [
-          3
-        ],
-        "new list 3": [],
-        "new list 4": [
-          3
-        ],
-        "new list 5": [
-          3
-        ],
-        "nice list": [
-          3
-        ],
-        "list6": [
-          3
-        ],
-        "new list 7": [
-          3
-        ]
+        "test": []
       },
       "id": "249e"
     },
@@ -555,6 +515,17 @@
       "username": "test1",
       "pwd": "1234",
       "list": {}
+    },
+    {
+      "id": "995f",
+      "username": "thanhcat",
+      "pwd": "fare",
+      "list": {
+        "test9k": [],
+        "test2": [],
+        "lol": [],
+        "lol2": []
+      }
     }
   ],
   "comments": [
@@ -599,6 +570,13 @@
     {
       "id": "3",
       "children": [
+        {
+          "id": 1740510128908,
+          "poster": "AAAA",
+          "time": "2025, 2月 03, 04:02",
+          "content": "s",
+          "children": []
+        },
         {
           "id": 1739740722380,
           "poster": "testuser",
@@ -1394,6 +1372,19 @@
       ],
       "time": "2025, 2月 01, 06:50",
       "status": "open"
+    },
+    {
+      "id": "1f57",
+      "poster": "AAAA",
+      "have": [
+        "26"
+      ],
+      "want": [
+        "14",
+        "30"
+      ],
+      "time": "2025, 2月 03, 03:58",
+      "status": "open"
     }
   ],
   "UserPhotos": [
@@ -1518,21 +1509,7 @@
     {
       "id": "30",
       "photoLinks": [
-        "https://img.amiami.com/images/product/main/204/FIGURE-120105.jpg",
-        "https://img.amiami.com/images/product/main/241/FIGURE-168099.jpg",
-        "https://img.amiami.com/images/product/main/241/FIGURE-168099.jpg",
-        "https://img.amiami.com/images/product/main/241/FIGURE-168099.jpg",
-        "https://img.amiami.com/images/product/main/241/FIGURE-168099.jpg",
-        "https://img.amiami.com/images/product/main/241/FIGURE-168099.jpg",
-        "https://img.amiami.com/images/product/main/241/FIGURE-168099.jpg",
-        "https://img.amiami.com/images/product/main/241/FIGURE-168099.jpg",
-        "https://img.amiami.com/images/product/main/241/FIGURE-168099.jpg",
-        "https://img.amiami.com/images/product/main/241/FIGURE-168099.jpg",
-        "https://img.amiami.com/images/product/main/241/FIGURE-168099.jpg",
-        "https://img.amiami.com/images/product/main/241/FIGURE-168099.jpg",
-        "https://img.amiami.com/images/product/main/241/FIGURE-168099.jpg",
-        "https://img.amiami.com/images/product/main/241/FIGURE-168099.jpg",
-        "https://img.amiami.com/images/product/main/241/FIGURE-168099.jpg"
+        "http://res.cloudinary.com/deiobgalh/image/upload/v1740509816/Screenshot_2024-02-06_104947_aqzpqa.png"
       ]
     },
     {
@@ -1542,6 +1519,15 @@
     {
       "id": "32",
       "photoLinks": []
+    }
+  ],
+  "mails": [
+    {
+      "id": 1740505034398,
+      "from": "testuser",
+      "to": "AAAA",
+      "content": "えい",
+      "date": " 2025, 2月 03, 02:37"
     }
   ]
 }

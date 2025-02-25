@@ -18,7 +18,6 @@ function Main({ data }: any) {
   const [filterResult, setFilterResult] = useState<any>([])
 
   useEffect(() => {
-    console.log(data)
     if (filterData.brand === '' && filterData.name === '' && filterData.original === '' && filterData.year === '') {
       setIsFilterSearching(false)
       return

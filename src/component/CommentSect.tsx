@@ -123,7 +123,6 @@ export default function CommentSect({}) {
     server.get(`comments/${pageId}`).then((res) => {
       setIsLoading(false)
       setCommentData(res.data)
-      console.log('running')
     })
   }, [])
   if (isLoading) return <div className='comment_section box'>IS LOADING</div>
