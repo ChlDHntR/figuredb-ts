@@ -3,7 +3,7 @@ import { UserAuthContext } from '../context/UserAuthProvider'
 import server from '../axios/server'
 
 export default function ProfilePageDefault() {
-  const { currUser } = useContext(UserAuthContext)
+  const { currUser, setCurrUser } = useContext(UserAuthContext)
   const [username, setUsername] = useState(currUser?.username)
   const [newPassword, setNewPassword] = useState('')
   const [currentPassword, setCurrentPassword] = useState('')
@@ -47,6 +47,7 @@ export default function ProfilePageDefault() {
     }
     server.put(`users/${currUser.id}`, newUser).then((res) => {
       alert('保存完了')
+      setCurrUser(newUser)
       setCurrentPassword('')
       setNewPassword('')
     })

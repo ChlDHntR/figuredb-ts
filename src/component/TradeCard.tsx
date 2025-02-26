@@ -50,7 +50,7 @@ export default function TradingCard({ tradeInfo, figureData, handleWriteMail }: 
         <div className='header'>
           <h3 className='poster'>
             {tradeInfo.poster}
-            {tradeInfo.poster !== currUser.username && (
+            {currUser && tradeInfo.poster !== currUser.username && (
               <FontAwesomeIcon
                 onClick={() => {
                   window.scrollTo({ top: 0, behavior: 'smooth' })
