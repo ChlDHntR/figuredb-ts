@@ -23,7 +23,7 @@ function Comment({ parent, handleReply, commentData, setCommentData, input, setI
 
   const handleReplyButton = () => {
     let date = new Date()
-    let commentDate = ` ${date.getFullYear()}, ${months[date.getMonth()]} ${String(date.getDay()).padStart(
+    let commentDate = ` ${date.getFullYear()}, ${months[date.getMonth()]} ${String(date.getDate()).padStart(
       2,
       '0'
     )}, ${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`
@@ -123,17 +123,17 @@ export default function CommentSect({}) {
     server.get(`comments/${pageId}`).then((res) => {
       setIsLoading(false)
       setCommentData(res.data)
-      console.log('running')
     })
   }, [])
   if (isLoading) return <div className='comment_section box'>IS LOADING</div>
 
   const handlePostComment = () => {
     let date = new Date()
-    let commentDate = `${date.getFullYear()}, ${months[date.getMonth()]} ${String(date.getDay()).padStart(
+    let commentDate = `${date.getFullYear()}, ${months[date.getMonth()]} ${String(date.getDate()).padStart(
       2,
       '0'
     )}, ${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`
+    console.log(date.getDate())
     let node = new CommentInfo({
       id: Date.now(),
       poster: currUser.username,

@@ -528,6 +528,283 @@ textarea {
   }
   //////////// MAIN CONTENT ////////////
 
+  //////////// PROFILE PAGE ////////////
+  .profile-page-wrapper {
+    display: flex;
+    width: 50%;
+    background-color: white;
+    margin: 0 auto;
+    justify-content: center;
+    flex-direction: row;
+    align-items: stretch;
+    position: relative;
+    margin-top: 3rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    .side-nav {
+      width: 20%;
+      padding: 1rem;
+      //height: 95%;
+      border-right: 2px solid rgba(0, 0, 0, 0.3);
+      text-align: right;
+      .side-nav-item {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        h3 {
+          margin: 0;
+          padding: 10px;
+          font-size: 1rem;
+        }
+      }
+
+      .side-nav-item:hover {
+        cursor: pointer;
+        opacity: 0.8;
+      }
+    }
+
+    .main-section {
+      width: 80%;
+      height: 95%;
+      padding: 1rem;
+      .profile-page-default {
+        max-width: 600px;
+        margin: 0 auto;
+        h2 {
+          font-size: 24px;
+          margin-bottom: 16px;
+        }
+        .form-group {
+          margin-bottom: 16px;
+          .name {
+            font-size: 1rem;
+            font-weight: bold;
+          }
+          .input-field-wrap {
+            display: flex;
+            flex-direction: row;
+            background-color: white;
+            width: 50%;
+            height: 2.5rem;
+            .left-margin,
+            .right-margin {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              padding: 10px;
+              opacity: 0.4;
+            }
+
+            .right-margin:hover {
+              cursor: pointer;
+              opacity: 0.8;
+            }
+
+            input {
+              width: 70%;
+              border: none;
+              font-size: 1rem;
+            }
+            input:focus {
+              border: none;
+              outline: none;
+            }
+          }
+
+          .error {
+            color: red;
+            font-size: 0.8rem;
+            font-style: italic;
+          }
+
+          button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+          }
+
+          button:disabled {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: not-allowed;
+          }
+
+          button:hover {
+            background-color: #0056b3;
+          }
+        }
+      }
+
+      .profile-page-list {
+        .userList {
+          background-color: white;
+          padding: 10px;
+          .title {
+            border-bottom: 1px solid #eeeeee;
+            p {
+              text-align: center;
+              font-weight: bold;
+            }
+          }
+          .list_wrapper {
+            .list {
+              padding: 10px;
+              margin: 10px;
+              background-color: #eeeeee;
+              border-radius: 5px;
+              height: auto;
+              overflow: hidden;
+              transition: all 0.8s;
+              .list_header {
+                display: flex;
+                justify-content: space-between;
+                height: 1.5rem;
+
+                .plus:hover {
+                  color: green;
+                  cursor: pointer;
+                }
+                .caret_down:hover {
+                  color: green;
+                  cursor: pointer;
+                }
+              }
+              .list_item {
+                display: flex;
+                flex-direction: row;
+                margin: 6px;
+                background-color: white;
+                border-radius: 5px;
+                justify-content: space-between;
+                .info {
+                  display: flex;
+                  flex-direction: row;
+                  img {
+                    margin: auto 2px;
+                    display: block;
+                    width: 50px;
+                    height: 50px;
+                    object-fit: cover;
+                  }
+                  p {
+                    margin: 0;
+                    padding: 5px;
+                    font-size: 14px;
+                  }
+                }
+              }
+            }
+            .notLogin {
+              text-align: center;
+            }
+          }
+          .createList {
+            text-align: start;
+            transition: all 0.2s;
+            margin: 0 10px 0 10px;
+            display: flex;
+            font-size: 1rem;
+            //font-weight: bold;
+            .fa-plus {
+              line-height: normal;
+              font-weight: normal;
+            }
+          }
+
+          .create {
+            display: flex;
+            justify-content: space-between;
+          }
+          .createList:hover {
+            cursor: pointer;
+            transform: scale(1.05);
+            transform-origin: 75px;
+          }
+        }
+      }
+
+      .profile-page-mail {
+        .select-box-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .label {
+          font-size: 18px;
+          font-weight: bold;
+        }
+
+        .select {
+          padding: 8px;
+          border: 2px solid #ccc;
+          border-radius: 5px;
+          font-size: 16px;
+          cursor: pointer;
+        }
+
+        .select:focus {
+          outline: none;
+          border-color: #007bff;
+          box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        .selected-text {
+          color: #007bff;
+          font-size: 16px;
+          margin-top: 10px;
+        }
+
+        .mail-container {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          padding: 20px;
+          max-width: 400px;
+          margin: auto;
+        }
+
+        .mail-item {
+          background-color: #f9f9f9;
+          padding: 15px;
+          border-radius: 8px;
+          border: 1px solid #ddd;
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .mail-sender {
+          font-size: 16px;
+          font-weight: bold;
+          color: #333;
+        }
+
+        .mail-content {
+          font-size: 14px;
+          margin: 5px 0;
+          color: #555;
+        }
+
+        .mail-date {
+          font-size: 12px;
+          color: #777;
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  //////////// PROFILE PAGE ////////////
+
   //////////// FIGURE PAGE ////////////
   .figure_page {
     display: flex;
@@ -710,7 +987,7 @@ textarea {
     justify-content: space-between;
     position: relative;
     .wide {
-      width: 75%;
+      width: 65%;
       margin-top: 2rem;
       .add-trade-btn {
         background-color: #f0f0f0;
@@ -988,9 +1265,54 @@ textarea {
     }
   }
   .side {
-    width: 20%;
+    width: 30%;
     //  height: 100px;
     margin-top: 2rem;
+    .mail-compose-wrapper {
+      background-color: white;
+      padding: 10px;
+      .title {
+        border-bottom: 1px solid #eeeeee;
+        p {
+          text-align: center;
+          font-weight: bold;
+        }
+      }
+      .mail-wrapper {
+        .content-field {
+          textarea {
+            width: 100%;
+            font-size: 1.2rem;
+            height: 10rem;
+          }
+        }
+      }
+      .send-btn {
+        text-align: center;
+        background-color: #007bff;
+        font-weight: bold;
+        color: white;
+        transition: all 0.3s;
+        border-radius: 5px;
+      }
+      .send-btn:hover {
+        cursor: pointer;
+        background-color: #004085;
+      }
+      .cancel-btn {
+        margin-top: 5px;
+        text-align: center;
+        background-color: rgba(255, 0, 0, 0.685);
+        font-weight: bold;
+        color: white;
+        transition: all 0.3s;
+        border-radius: 5px;
+      }
+      .cancel-btn:hover {
+        cursor: pointer;
+        background-color: #004085;
+      }
+    }
   }
 }
 
@@ -1149,9 +1471,25 @@ textarea {
 
 .PopUp_wrapper {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   z-index: 100;
+  .image-container {
+    height: 500px;
+    margin: 0 auto;
+    top: 50%;
+    transform: translateY(50%);
+    width: 50%;
+    background-color: white;
+    padding: 10px;
+    img {
+      max-height: 100%;
+      display: block;
+      margin: 0 auto;
+    }
+  }
   .background {
     background-color: black;
     height: 100%;
@@ -1284,26 +1622,32 @@ textarea {
         justify-content: space-between;
         .username {
           padding-left: 5px;
-          font-weight: bold;
-          font-size: 12px;
+          font-weight: 1000;
+          font-size: 0.8rem;
+          color: rgba(0, 0, 0, 0.85);
         }
         .date {
           padding-right: 5px;
           opacity: 0.8;
+          font-size: 0.8rem;
         }
       }
       .content {
-        font-size: 20px;
+        font-size: 1.5rem;
         padding: 0 10px;
         color: black;
+        margin-top: 0.5rem;
       }
       .reply_btn {
         display: flex;
-        justify-content: flex-end;
+        justify-content: flex-start;
+        padding-left: 10px;
         button {
           background-color: white;
-          border: none;
+          border: 1px solid transparent;
           outline: none;
+          padding: 0;
+          height: 80%;
         }
       }
       button:not(:disabled):hover {
@@ -1314,7 +1658,7 @@ textarea {
     .children_wrapper {
       //margin-top: 10px;
       display: flex;
-      border-left: 1px solid #2b2d42;
+      border-left: 4px solid rgba(0, 0, 0, 0.2);
 
       .padding {
         width: 3%;

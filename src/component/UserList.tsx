@@ -12,8 +12,8 @@ library.add(faCaretDown)
 export default function UserList({ data, currUser }: any) {
   const [showList, setShowList] = useState<any>({})
   const [isCreatingList, setIsCreatingList] = useState(false)
-  const [forceReRen, setForceReRen] = useState({})
   const inputRef = useRef<HTMLInputElement>(null)
+  const [forceReRen, setForceReRen] = useState({})
   const id = useContext(PageIdContext)
   const { messageAlert } = useContext(FlashMessageContext)
 
@@ -34,7 +34,7 @@ export default function UserList({ data, currUser }: any) {
 
   const handleCreateList = () => {
     if (inputRef.current!.value === '') {
-      messageAlert('List name can not be blank', false)
+      messageAlert('コレクションの名前が必要です', false)
     }
     let newlistName: string = inputRef.current?.value!
     let thisUser = { ...currUser }
@@ -43,7 +43,6 @@ export default function UserList({ data, currUser }: any) {
       return
     }
     thisUser.list[newlistName] = []
-    console.log(thisUser.list)
     server
       .put(`users/${currUser.id}`, thisUser)
       .then(messageAlert(`'${newlistName}'コレクションがさくせいされました！`, true))
@@ -52,15 +51,14 @@ export default function UserList({ data, currUser }: any) {
 
   const handleAddToList = (listname: string) => {
     let updateUserList = { ...currUser }
-    console.log(updateUserList.list[listname].includes(id))
     if (updateUserList.list[listname].includes(Number(id))) {
-      messageAlert('Item existed in list', false)
+      messageAlert('このアイテムが既にこのコレクションに存在しています', false)
       return
     }
     updateUserList.list[listname].push(Number(id))
     server.put(`users/${currUser.id}`, updateUserList)
     setForceReRen({})
-    messageAlert('Item successfully added to list', true)
+    messageAlert(`${listname}に追加されました`, true)
   }
 
   return (

@@ -20,7 +20,7 @@ export default function LoginPage({ setPopUp, popUp }: any) {
       let userData = response.data
       let foundUser = userData.find((element: User) => element.username === username.current!.value)
       if (!foundUser || !(foundUser.pwd === pwd.current!.value)) {
-        alert('username or password is wrong')
+        alert('ユーザー名・パスワードが正しくない')
         return
       }
 
@@ -35,18 +35,27 @@ export default function LoginPage({ setPopUp, popUp }: any) {
   }
   const handleRegister = () => {
     if (pwd.current!.value !== reEnterPwd.current!.value) {
-      messageAlert('Password does not match', false)
+      messageAlert('パスワードが一致していません', false)
       return
     }
-    let newUser = {
-      username: username.current!.value,
-      pwd: pwd.current!.value,
-      list: {},
-    }
-    server.post('users', newUser).then((res) => {
-      console.log('registered' + newUser.username)
-      alert('ユーザー登録された！')
-      setRegister(false)
+
+    server.get('users').then((response) => {
+      let userData = response.data
+      let foundUser = userData.find((element: any) => element.username === username.current!.value)
+      if (foundUser) {
+        alert('このユーザー名は既に存在します')
+        return
+      }
+      let newUser = {
+        username: username.current!.value,
+        pwd: pwd.current!.value,
+        list: {},
+      }
+      server.post('users', newUser).then((res) => {
+        console.log('registered' + newUser.username)
+        alert('ユーザー登録された！')
+        setRegister(false)
+      })
     })
   }
 

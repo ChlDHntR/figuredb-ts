@@ -7,20 +7,7 @@ import { FlashMessageContext } from '../context/FloatMessageProvider'
 import { UserAuthContext } from '../context/UserAuthProvider'
 import server from '../axios/server'
 
-const months = [
-  '1月',
-  '2月',
-  '3月',
-  '4月',
-  '5月',
-  '6月',
-  '7月',
-  '8月',
-  '9月',
-  '10月',
-  '1月',
-  '12月',
-]
+const months = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '1月', '12月']
 
 function AddDropDown({ data, handleClick }: any) {
   const [searchValue, setSearchValue] = useState('')
@@ -34,9 +21,7 @@ function AddDropDown({ data, handleClick }: any) {
         setShowDrop(false)
         return
       }
-      let newList = data.filter((element: any) =>
-        element.name.toLowerCase().includes(e.target.value.toLowerCase())
-      )
+      let newList = data.filter((element: any) => element.name.toLowerCase().includes(e.target.value.toLowerCase()))
       setSearchList([...newList])
       //   if (newList.length >= 8) {
       //     setShowDrop(true)
@@ -48,7 +33,7 @@ function AddDropDown({ data, handleClick }: any) {
   )
 
   return (
-    <div className="searchBar_wrapper">
+    <div className='searchBar_wrapper'>
       <InputBar
         value={searchValue}
         placeholder={'キーワード検索🔍'}
@@ -59,22 +44,12 @@ function AddDropDown({ data, handleClick }: any) {
         }}
         //handleBlur={handleBlur}
       ></InputBar>
-      {showDrop && (
-        <DropDown
-          data={searchList}
-          handleClick={handleClick}
-          activeUseavigate={false}
-        ></DropDown>
-      )}
+      {showDrop && <DropDown data={searchList} handleClick={handleClick} activeUseavigate={false}></DropDown>}
     </div>
   )
 }
 
-export default function AddTradeCard({
-  figureData,
-  setAddTrade,
-  forceReRender,
-}: any) {
+export default function AddTradeCard({ figureData, setAddTrade, forceReRender }: any) {
   const [itemList, setItemList] = useState<any>({ left: [], right: [] })
   const [showDrop, setShowDrop] = useState({ left: false, right: false })
   const { currUser } = useContext(UserAuthContext)
@@ -82,11 +57,10 @@ export default function AddTradeCard({
 
   const handleUploadOffer = () => {
     let date = new Date()
-    let uploadDate = `${date.getFullYear()}, ${
-      months[date.getMonth()]
-    } ${String(date.getDay()).padStart(2, '0')}, ${String(
-      date.getHours()
-    ).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`
+    let uploadDate = `${date.getFullYear()}, ${months[date.getMonth()]} ${String(date.getDate()).padStart(
+      2,
+      '0'
+    )}, ${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`
     let offer = {
       poster: currUser.username,
       have: itemList.left,
@@ -104,22 +78,22 @@ export default function AddTradeCard({
   const handleCancel = () => {
     setAddTrade(false)
   }
-  
+
   return (
-    <div className="add-trade box">
-      <h3 className="heading">交換オッファーを作成</h3>
-      <div className="trading-items">
-        <div className="item-grid left">
+    <div className='add-trade box'>
+      <h3 className='heading'>交換オッファーを作成</h3>
+      <div className='trading-items'>
+        <div className='item-grid left'>
           {itemList.left.map((item: any, index: number) => (
             <div
               key={index}
               style={{ backgroundImage: `url(${figureData[item - 1].image})` }}
-              className="item-image"
+              className='item-image'
             ></div>
           ))}
-          <div className="new-item">
+          <div className='new-item'>
             <div
-              className="item-image"
+              className='item-image'
               style={{ textAlign: 'center' }}
               onClick={() => setShowDrop({ ...showDrop, left: !showDrop.left })}
             >
@@ -137,29 +111,27 @@ export default function AddTradeCard({
             )}
           </div>
         </div>
-        <div className="arrow">
+        <div className='arrow'>
           <FontAwesomeIcon icon={faRightLong} />
         </div>
-        <div className="item-grid right">
+        <div className='item-grid right'>
           {itemList.right.map((item: any, index: number) => (
             <div
               key={index}
               style={{ backgroundImage: `url(${figureData[item - 1].image})` }}
-              className="item-image"
+              className='item-image'
             ></div>
           ))}
-          <div className="new-item">
+          <div className='new-item'>
             <div
-              className="item-image"
+              className='item-image'
               style={{
                 textAlign: 'center',
                 display: 'flex',
                 justifyContent: 'center',
                 flexDirection: 'column',
               }}
-              onClick={() =>
-                setShowDrop({ ...showDrop, right: !showDrop.right })
-              }
+              onClick={() => setShowDrop({ ...showDrop, right: !showDrop.right })}
             >
               <p>+</p>
             </div>
@@ -176,11 +148,11 @@ export default function AddTradeCard({
           </div>
         </div>
       </div>
-      <div className="op-btn">
-        <div className="add-btn" onClick={handleUploadOffer}>
+      <div className='op-btn'>
+        <div className='add-btn' onClick={handleUploadOffer}>
           <p>投稿</p>
         </div>
-        <div className="cancel-btn" onClick={handleCancel}>
+        <div className='cancel-btn' onClick={handleCancel}>
           <p>キャンセル</p>
         </div>
       </div>

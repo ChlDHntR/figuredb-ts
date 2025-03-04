@@ -17,6 +17,10 @@ export default function FigurePage({ data }: any) {
   //   console.log(left)
   //   side.current.style.right = `${left}px`
   // })
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [])
+
   return (
     <div className='figure_page'>
       <div className='wide'>
