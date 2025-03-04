@@ -14,6 +14,7 @@ import LoginPage from './component/LoginPage.tsx'
 import TradingPage from './component/TradingPage.tsx'
 import UploadPage from './component/UploadPage.tsx'
 import { SocketProvider } from './context/SocketProvider.tsx'
+import ProfilePage from './component/ProfilePage.tsx'
 
 function App({ user, data }: any) {
   const [currUser, setCurrUser] = useState(user)
@@ -40,6 +41,15 @@ function App({ user, data }: any) {
                   <>
                     <NavBar data={data} />
                     <Main data={data} />
+                  </>
+                }
+              />
+              <Route
+                path='/profile'
+                element={
+                  <>
+                    <NavBar data={data} />
+                    <ProfilePage />
                   </>
                 }
               />

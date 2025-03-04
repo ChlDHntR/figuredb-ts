@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
+import { useState, useContext } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faRightLong } from '@fortawesome/free-solid-svg-icons'
+import { faRightLong, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import GeneralDropDown from './GeneralDropDown'
+import { UserAuthContext } from '../context/UserAuthProvider'
 
-export default function TradingCard({ tradeInfo, figureData }: any) {
+export default function TradingCard({ tradeInfo, figureData, handleWriteMail }: any) {
   const [showDrop, setShowDrop] = useState({ left: null, right: null })
   const leftList = [...tradeInfo.have]
   const rightList = [...tradeInfo.want]
+  const { currUser } = useContext(UserAuthContext)
 
   const handleMouseEnter = (key: number, side: string) => {
     setShowDrop((prev) => ({ ...prev, [side]: key }))
@@ -46,7 +48,19 @@ export default function TradingCard({ tradeInfo, figureData }: any) {
     <div className='trading-card-wrapper box'>
       <div className='trading-card'>
         <div className='header'>
-          <h3 className='poster'>{tradeInfo.poster}</h3>
+          <h3 className='poster'>
+            {tradeInfo.poster}
+            {currUser && tradeInfo.poster !== currUser.username && (
+              <FontAwesomeIcon
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: 'smooth' })
+                  handleWriteMail(tradeInfo.poster)
+                }}
+                style={{ marginLeft: '10px', cursor: 'pointer' }}
+                icon={faEnvelope}
+              />
+            )}
+          </h3>
           <p className='date'>{tradeInfo.time}</p>
         </div>
         <div className='trading-items'>

@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { FigureData } from '../interface.type/interface'
 
-function Slider({ data, interval }: { data: FigureData[]; interval: number }) {
+function Slider({ data, interval }: { data: any[]; interval: number }) {
   const [isDown, setIsDown] = useState(false)
   const boxRef = useRef<any>(null)
   const wrapperRef = useRef<any>(null)

@@ -12,26 +12,34 @@ function Import({ data }: any) {
 
   const [figureList, setFigureList] = useState(data.map((element: any) => element.name))
 
+  const numberWithComma = (x: number) => {
+    return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')
+  }
+
   const handleClick = (e: any) => {
     e.preventDefault()
     if (figureList.find((element: any) => element === name)) {
       alert('This figure is already in the list')
       return
     }
+
+    let priceFormat = numberWithComma(Number(price))
+
     let newData = {
       name: name,
       image: image,
       brand: brand,
       series: series,
       date: date,
-      price: price,
+      price: priceFormat,
       about: about,
       id: `${figureList.length + 1}`,
     }
     setFigureList((prev: any) => [...prev, name])
 
-    server.post('comments', {id: `${figureList.length + 1}`, "children": []})
+    server.post('comments', { id: `${figureList.length + 1}`, children: [] })
     server.post('figures', newData).then((response) => alert('success'))
+    server.post('UserPhotos', { id: `${figureList.length + 1}`, photoLinks: [] })
   }
 
   return (
