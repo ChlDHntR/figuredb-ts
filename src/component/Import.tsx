@@ -39,6 +39,7 @@ function Import({ data }: any) {
 
     server.post('comments', { id: `${figureList.length + 1}`, children: [] })
     server.post('figures', newData).then((response) => alert('success'))
+    server.post('UserPhotos', { id: `${figureList.length + 1}`, photoLinks: [] })
   }
 
   return (

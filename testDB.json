@@ -322,13 +322,23 @@
     },
     {
       "id": "33",
-      "name": "METAMORPHOSE - THE RISE OF INSECTS Series Airoki 1/12 Scale Posable Figure",
+      "name": "METAMORPHOSE",
       "image": "https://img.amiami.com/images/product/main/251/FIGURE-182902.jpg",
       "brand": "Giveme5ive",
       "series": "METAMORPHOSE - THE RISE OF INSECTS",
       "date": "2025-02-26",
       "price": "11,280",
       "about": "スケール: 1/12 材質: PVC + ABS + POM + 布"
+    },
+    {
+      "id": "34",
+      "name": "Black Eclipse Wyvern Gore Magala",
+      "image": "https://img.amiami.com/images/product/main/232/FIGURE-154691.jpg",
+      "brand": "Capcom",
+      "series": "カプコンフィギュアビルダー",
+      "date": "2025-03-05",
+      "price": "4,000",
+      "about": "N/A"
     }
   ],
   "rating": [
@@ -504,7 +514,9 @@
       "username": "abc",
       "pwd": "123",
       "list": {
-        "欲しいリスト": [13]
+        "欲しいリスト": [
+          13
+        ]
       }
     },
     {
@@ -512,7 +524,10 @@
       "username": "qwer",
       "pwd": "1234",
       "list": {
-        "欲しいリスト": [3, 13]
+        "欲しいリスト": [
+          3,
+          13
+        ]
       }
     },
     {
@@ -1239,118 +1254,191 @@
     {
       "id": "33",
       "children": []
+    },
+    {
+      "id": "34",
+      "children": []
     }
   ],
   "trades": [
     {
       "id": "zxcv",
       "poster": "testuser",
-      "have": [1, 2, 3],
-      "want": [4, 5, 6],
+      "have": [
+        1,
+        2,
+        3
+      ],
+      "want": [
+        4,
+        5,
+        6
+      ],
       "time": "2025, 1月 02, 23:02",
       "status": "open"
     },
     {
       "id": "qwer",
       "poster": "AAAA",
-      "have": [20, 12, 7],
-      "want": [21, 15, 17, 18],
+      "have": [
+        20,
+        12,
+        7
+      ],
+      "want": [
+        21,
+        15,
+        17,
+        18
+      ],
       "time": "2025, 1月 02, 23:02",
       "status": "close"
     },
     {
       "id": "dc10",
       "poster": "testuser",
-      "have": ["21"],
-      "want": ["20"],
+      "have": [
+        "21"
+      ],
+      "want": [
+        "20"
+      ],
       "time": "2025, 2月 04, 16:22",
       "status": "open"
     },
     {
       "id": "60e2",
       "poster": "testuser",
-      "have": ["25"],
-      "want": ["31"],
+      "have": [
+        "25"
+      ],
+      "want": [
+        "31"
+      ],
       "time": "2025, 2月 04, 16:38",
       "status": "open"
     },
     {
       "id": "9807",
       "poster": "testuser",
-      "have": ["6"],
-      "want": ["10"],
+      "have": [
+        "6"
+      ],
+      "want": [
+        "10"
+      ],
       "time": "2025, 2月 04, 16:39",
       "status": "open"
     },
     {
       "id": "6db4",
       "poster": "testuser",
-      "have": ["14"],
-      "want": ["15"],
+      "have": [
+        "14"
+      ],
+      "want": [
+        "15"
+      ],
       "time": "2025, 2月 04, 16:41",
       "status": "open"
     },
     {
       "id": "095e",
       "poster": "testuser",
-      "have": ["3"],
-      "want": ["3"],
+      "have": [
+        "3"
+      ],
+      "want": [
+        "3"
+      ],
       "time": "2025, 2月 04, 16:46",
       "status": "open"
     },
     {
       "id": "5f80",
       "poster": "testuser",
-      "have": ["1"],
-      "want": ["3"],
+      "have": [
+        "1"
+      ],
+      "want": [
+        "3"
+      ],
       "time": "2025, 2月 01, 05:50",
       "status": "open"
     },
     {
       "id": "8a78",
       "poster": "testuser",
-      "have": ["6"],
-      "want": ["14", "15"],
+      "have": [
+        "6"
+      ],
+      "want": [
+        "14",
+        "15"
+      ],
       "time": "2025, 2月 01, 06:04",
       "status": "open"
     },
     {
       "id": "a916",
       "poster": "testuser",
-      "have": ["1", "2"],
-      "want": ["10", "22"],
+      "have": [
+        "1",
+        "2"
+      ],
+      "want": [
+        "10",
+        "22"
+      ],
       "time": "2025, 2月 01, 06:15",
       "status": "open"
     },
     {
       "id": "905b",
       "poster": "testuser",
-      "have": ["3"],
-      "want": ["9"],
+      "have": [
+        "3"
+      ],
+      "want": [
+        "9"
+      ],
       "time": "2025, 2月 01, 06:27",
       "status": "open"
     },
     {
       "id": "f224",
       "poster": "testuser",
-      "have": ["3"],
-      "want": ["1"],
+      "have": [
+        "3"
+      ],
+      "want": [
+        "1"
+      ],
       "time": "2025, 2月 01, 06:47",
       "status": "open"
     },
     {
       "id": "c061",
       "poster": "testuser",
-      "have": ["3"],
-      "want": ["1"],
+      "have": [
+        "3"
+      ],
+      "want": [
+        "1"
+      ],
       "time": "2025, 2月 01, 06:50",
       "status": "open"
     },
     {
       "id": "1f57",
       "poster": "AAAA",
-      "have": ["26"],
-      "want": ["14", "30"],
+      "have": [
+        "26"
+      ],
+      "want": [
+        "14",
+        "30"
+      ],
       "time": "2025, 2月 03, 03:58",
       "status": "open"
     }
@@ -1358,7 +1446,9 @@
   "UserPhotos": [
     {
       "id": "1",
-      "photoLinks": ["http://res.cloudinary.com/deiobgalh/image/upload/v1739732739/4187271_y9spmh.jpg"]
+      "photoLinks": [
+        "http://res.cloudinary.com/deiobgalh/image/upload/v1739732739/4187271_y9spmh.jpg"
+      ]
     },
     {
       "id": "2",
@@ -1484,6 +1574,14 @@
     },
     {
       "id": "32",
+      "photoLinks": []
+    },
+    {
+      "id": "33",
+      "photoLinks": []
+    },
+    {
+      "id": "34",
       "photoLinks": []
     }
   ],

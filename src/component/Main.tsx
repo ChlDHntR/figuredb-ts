@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Slider } from './Slider'
 import { PopUp } from './PopUp'
 import { IconProp, library } from '@fortawesome/fontawesome-svg-core'
@@ -16,6 +16,7 @@ function Main({ data }: any) {
   const [isFilterSearching, setIsFilterSearching] = useState(false)
   const [filterData, setFilterData] = useState({ name: '', brand: '', original: '', year: '' })
   const [filterResult, setFilterResult] = useState<any>([])
+  const thisYearList = useRef<any[]>(data.filter((item: any) => item.date.includes('2025')))
 
   useEffect(() => {
     if (filterData.brand === '' && filterData.name === '' && filterData.original === '' && filterData.year === '') {
@@ -34,17 +35,16 @@ function Main({ data }: any) {
     setFilterResult(result)
   }, [filterData])
 
-  const list1: any = [],
-    list2: any = []
-  const set1 = new Set<any>([])
-  for (let i = 0; set1.size <= 14; i++) {
-    let random = Math.round(Math.random() * (data.length - 1))
-    if (set1.has(random)) {
-      continue
-    }
-    set1.add(random)
-  }
-  set1.forEach((value) => list1.push(data[value]))
+  // const list1: any = []
+  // const set1 = new Set<any>([])
+  // for (let i = 0; set1.size <= 14; i++) {
+  //   let random = Math.round(Math.random() * (data.length - 1))
+  //   if (set1.has(random)) {
+  //     continue
+  //   }
+  //   set1.add(random)
+  // }
+  // set1.forEach((value) => list1.push(data[value]))
 
   return (
     <div className='Main_wrapper'>
@@ -71,9 +71,9 @@ function Main({ data }: any) {
           <div className='popular_slider'>
             <h1>
               <FontAwesomeIcon icon={faStar as IconProp} />
-              今月発売{'>'}{' '}
+              今年発売{'>'}{' '}
             </h1>
-            <Slider data={list1} interval={2500}></Slider>
+            <Slider data={thisYearList.current} interval={2500}></Slider>
           </div>
         </>
       )}
