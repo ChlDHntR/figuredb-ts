@@ -4,22 +4,41 @@ import { PopUp } from './PopUp'
 import { IconProp, library } from '@fortawesome/fontawesome-svg-core'
 import { faComments, faFire, faStar } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { IconLookup, IconDefinition, findIconDefinition } from '@fortawesome/fontawesome-svg-core'
+import {
+  IconLookup,
+  IconDefinition,
+  findIconDefinition,
+} from '@fortawesome/fontawesome-svg-core'
 import SearchFilter from './SearchFilter'
 import Banner from './Banner'
 import SearchFilterResult from './SearchFilterResult'
+import { useAsyncError } from 'react-router-dom'
 
 library.add(faFire)
 library.add(faStar)
 
 function Main({ data }: any) {
   const [isFilterSearching, setIsFilterSearching] = useState(false)
-  const [filterData, setFilterData] = useState({ name: '', brand: '', original: '', year: '' })
+  const [filterData, setFilterData] = useState({
+    name: '',
+    brand: '',
+    original: '',
+    year: '',
+  })
   const [filterResult, setFilterResult] = useState<any>([])
-  const thisYearList = useRef<any[]>(data.filter((item: any) => item.date.includes('2025')))
+  const thisYearList = useRef<any[]>(
+    data.filter((item: any) => item.date.includes('2025'))
+  )
+  const sliderList1 = useRef<any[] | null>(null)
+  const [forceRR, setForceRR] = useState({})
 
   useEffect(() => {
-    if (filterData.brand === '' && filterData.name === '' && filterData.original === '' && filterData.year === '') {
+    if (
+      filterData.brand === '' &&
+      filterData.name === '' &&
+      filterData.original === '' &&
+      filterData.year === ''
+    ) {
       setIsFilterSearching(false)
       return
     }
@@ -35,6 +54,21 @@ function Main({ data }: any) {
     setFilterResult(result)
   }, [filterData])
 
+  useEffect(() => {
+    const list1: any[] = []
+    const set1 = new Set<any>([])
+    for (let i = 0; set1.size <= 14; i++) {
+      let random = Math.round(Math.random() * (data.length - 1))
+      if (set1.has(random)) {
+        continue
+      }
+      set1.add(random)
+    }
+    set1.forEach((value) => list1.push(data[value]))
+    sliderList1.current = list1
+    setForceRR({})
+  }, [])
+
   // const list1: any = []
   // const set1 = new Set<any>([])
   // for (let i = 0; set1.size <= 14; i++) {
@@ -47,7 +81,7 @@ function Main({ data }: any) {
   // set1.forEach((value) => list1.push(data[value]))
 
   return (
-    <div className='Main_wrapper'>
+    <div className="Main_wrapper">
       <Banner />
       <SearchFilter
         nameFilter={filterData.name}
@@ -60,15 +94,20 @@ function Main({ data }: any) {
         <SearchFilterResult data={filterResult} />
       ) : (
         <>
-          <div className='buffer' style={{ height: '2rem' }}></div>
-          <div className='popular_slider'>
+          <div className="buffer" style={{ height: '2rem' }}></div>
+          <div className="popular_slider">
             <h1>
               <FontAwesomeIcon icon={faFire as IconProp} />
               人気{'>'}{' '}
             </h1>
-            <Slider data={data} interval={2000}></Slider>
+            { 
+              sliderList1.current === null ? 
+              <h1>Loading</h1>
+              :
+              <Slider data={sliderList1.current} interval={2000}></Slider>
+            }
           </div>
-          <div className='popular_slider'>
+          <div className="popular_slider">
             <h1>
               <FontAwesomeIcon icon={faStar as IconProp} />
               今年発売{'>'}{' '}

@@ -331,14 +331,224 @@
       "about": "スケール: 1/12 材質: PVC + ABS + POM + 布"
     },
     {
-      "id": "34",
-      "name": "Black Eclipse Wyvern Gore Magala",
+      "name": "Zenless Zone Zero Happy Shake Rocketboo Complete Figure",
+      "image": "https://img.amiami.com/images/product/main/251/FIGURE-183218.jpg",
+      "brand": "APEX",
+      "series": "Zenless Zone Zero",
+      "date": "2025-07-05",
+      "price": "2,470",
+      "about": "塗装済み完成品フィギュア サイズ: 約H10.3cm(台座含む) 材質: PVC、ABS、金属",
+      "id": "34"
+    },
+    {
+      "name": "Black Eclipse Wyvern Gore Magala Reproduction",
       "image": "https://img.amiami.com/images/product/main/232/FIGURE-154691.jpg",
       "brand": "Capcom",
       "series": "カプコンフィギュアビルダー",
+      "date": "2025-10-05",
+      "price": "13,200",
+      "about": "『モンスターハンターライズ サンブレイク』に登場する話題の「黒蝕竜ゴア・マガラ」が、ご要望にお応えして再登場。  感覚を極限まで研ぎ澄ませ、触手を広げ、翼を広げたゴア・マガラの「狂乱状態」で立体化！  本商品は、2014年9月に発売した「CFBクリエイターズモデル 黒蝕竜ゴア・マガラ」と同仕様です。",
+      "id": "35"
+    },
+    {
+      "name": "MONSTER HUNTER Bubble Fox Wyvern Mizutsune Comlete Figure",
+      "image": "https://img.amiami.com/images/product/main/234/FIGURE-163042.jpg",
+      "brand": "Capcom",
+      "series": "泡狐竜 タマミツネ",
+      "date": "2024-07-05",
+      "price": "2,370",
+      "about": "完成品フィギュア サイズ：約H109mm×W101mm×D74mm（台座含む） 材質：PVC、ABS",
+      "id": "36"
+    },
+    {
+      "name": "Roaring Wyvern Tigrex Reproduction Edition Complete Figure",
+      "image": "https://img.amiami.com/images/product/main/243/FIGURE-173374.jpg",
+      "brand": "Capcom",
+      "series": "カプコンフィギュアビルダー",
+      "date": "2025-01-15",
+      "price": "10,560",
+      "about": "完成品フィギュア サイズ：約H109mm×W101mm×D74mm（台座含む） 材質：PVC、ABS",
+      "id": "37"
+    },
+    {
+      "name": "Robot Spirits -SIDE MS- MSN-00100 Hyaku Shiki ver. A.N.I.M.E.",
+      "image": "https://img.amiami.com/images/product/main/243/FIGURE-173374.jpg",
+      "brand": "BANDAI SPIRITS",
+      "series": "機動戦士Zガンダム",
+      "date": "2025-01-15",
+      "price": "10,560",
+      "about": "サイズ：全高約130mm 材質：ABS、PVC  [セット内容] フィギュア本体 交換用手首左右各4種 手首パーツ収納デッキ 交換用頭部センサーパーツ3種 ビームライフル",
+      "id": "38"
+    },
+    {
+      "name": "Robot Spirits -SIDE MS- RMS-106 Hizack ver. A.N.I.M.E.",
+      "image": "https://img.amiami.com/images/product/main/242/FIGURE-169266.jpg",
+      "brand": "BANDAI SPIRITS",
+      "series": "機動戦士Zガンダム",
+      "date": "2024-09-15",
+      "price": "6,545",
+      "about": "サイズ：全高約130mm 材質：ABS、PVC  [セット内容] フィギュア本体 交換用手首左右各4種 手首パーツ収納デッキ 交換用頭部センサーパーツ3種 ビームライフル",
+      "id": "39"
+    },
+    {
+      "name": "Robot Spirits -SIDE MS- RMS-179 GM II (E.F.S.F. Model) ver. A.N.I.M.E.",
+      "image": "https://img.amiami.com/images/product/main/242/FIGURE-172176.jpg",
+      "brand": "BANDAI SPIRITS",
+      "series": "機動戦士Zガンダム",
+      "date": "2024-09-15",
+      "price": "7,480",
+      "about": "サイズ：全高約130mm 材質：ABS、PVC  [セット内容] フィギュア本体 交換用手首左右各4種 手首パーツ収納デッキ 交換用頭部センサーパーツ3種 ビームライフル",
+      "id": "40"
+    },
+    {
+      "name": "Robot Spirits -SIDE MS- Rick-Dias",
+      "image": "https://img.amiami.com/images/product/main/153/FIGURE-012851.jpg",
+      "brand": "BANDAI SPIRITS",
+      "series": "機動戦士Zガンダム",
+      "date": "2024-09-15",
+      "price": "3,620",
+      "about": "サイズ：全高約130mm 材質：ABS、PVC  [セット内容] フィギュア本体 交換用手首左右各4種 手首パーツ収納デッキ 交換用頭部センサーパーツ3種 ビームライフル",
+      "id": "41"
+    },
+    {
+      "name": "Excellent Model RAHDX Gundam Archives SIDE-2 - Four Murasame Complete Figure",
+      "image": "https://img.amiami.com/images/product/main/061/HOB-FIG-3110.jpg",
+      "brand": "MegaHouse",
+      "series": "ガンダム・アーカイブス サイド２",
+      "date": "2006-07-15",
+      "price": "3,980",
+      "about": "N/A",
+      "id": "42"
+    },
+    {
+      "name": "S.H.Figuarts Tony Tony Chopper -Future Island Egghead- \"ONE PIECE\"",
+      "image": "https://img.amiami.com/images/product/main/251/FIGURE-183244.jpg",
+      "brand": "BANDAI SPIRITS",
+      "series": "ONE PIECE",
       "date": "2025-03-05",
-      "price": "4,000",
-      "about": "N/A"
+      "price": "3,740",
+      "about": "サイズ：全高約75mm 材質：ABS、PVC  [セット内容] フィギュア本体 表情パーツ3種 支柱ベース一式 [特典パーツ]「S.H.Figuarts モンキー・D・ルフィ -未来島エッグヘッド-」用表情パーツ",
+      "id": "43"
+    },
+    {
+      "name": "S.H.Figuarts Sabo -Chief of Staff of the Revolutionary Army- \"ONE PIECE\"",
+      "image": "https://img.amiami.com/images/product/main/243/FIGURE-174969.jpg",
+      "brand": "BANDAI SPIRITS",
+      "series": "ONE PIECE",
+      "date": "2025-03-05",
+      "price": "7,540",
+      "about": "サイズ：全高約75mm 材質：ABS、PVC  [セット内容] フィギュア本体 表情パーツ3種 支柱ベース一式 [特典パーツ]「S.H.Figuarts モンキー・D・ルフィ -未来島エッグヘッド-」用表情パーツ",
+      "id": "44"
+    },
+    {
+      "name": "Variable Action Heroes ONE PIECE \"Red-Haired Shanks Ver.1.5",
+      "image": "https://img.amiami.com/images/product/main/242/FIGURE-171475.jpg",
+      "brand": "BANDAI SPIRITS",
+      "series": "ONE PIECE",
+      "date": "2024-10-24",
+      "price": "8,880",
+      "about": "塗装済み完成品アクションフィギュア サイズ：全高約190mm  [セット内容] フィギュア本体 表情パーツ×3 拳パーツ マント（布製） 刀 鞘",
+      "id": "45"
+    },
+    {
+      "name": "S.H.Figuarts Zenitsu Agatsuma \"Demon Slayer: Kimetsu no Yaiba\"",
+      "image": "https://img.amiami.com/images/product/main/251/FIGURE-183252.jpg",
+      "brand": "BANDAI SPIRITS",
+      "series": "鬼滅の刃",
+      "date": "2025-03-05",
+      "price": "8,410",
+      "about": "サイズ：全高約140mm 材質：PVC、ABS  [セット内容] フィギュア本体 交換用手首パーツ 左4種 / 右3種 交換用表情パーツ 4種 日輪刀 鞘 「S.H.Figuarts 竈門炭治郎」用交換用表情パーツ",
+      "id": "46"
+    },
+    {
+      "name": "POP UP PARADE SP hololive production Hoshimachi Suisei Complete Figure",
+      "image": "https://img.amiami.com/images/product/main/251/FIGURE-183275.jpg",
+      "brand": "Good Smile Company",
+      "series": "ホロライブプロダクション",
+      "date": "2025-09-05",
+      "price": "6,120",
+      "about": "塗装済み完成品フィギュア サイズ：全高約170mm（ノンスケール） 材質：プラスチック  [セット内容] 本体 台座",
+      "id": "47"
+    },
+    {
+      "name": "Hakui Koyori 1/7 Scale Figure",
+      "image": "https://img.amiami.com/images/product/main/251/FIGURE-181606.jpg",
+      "brand": "Good Smile Company",
+      "series": "ホロライブプロダクション",
+      "date": "2025-11-28",
+      "price": "26,120",
+      "about": "原型制作：上下あかね（Knead） 原型協力：クレイネル 彩色：蜻蛉（クレイネル） デカール：yosuke、Ruka、Andy（クレイネル） 「ホロックスの頭脳！私の名は白井こより！」 ホロライブプロダクションより、秘密結社ホロックスの研究員「白井こより」が1/7スケールフィギュアで初登場！ 躍動感あふれるコヨリの姿を体現した精巧なフィギュア。躍動感あふれる姿、温かさと喜びを放つ大きな笑顔は、あなたの心をとろけさせること間違いなし。 ピンクの髪は、そよ風に吹かれたように繊細に流れる、軽やかさを感じさせるよう丁寧に造形されています。",
+      "id": "48"
+    },
+    {
+      "name": "hololive English -Myth- Gawr Gura 1/7 Complete Figure",
+      "image": "https://img.amiami.com/images/product/main/231/FIGURE-150839.jpg",
+      "brand": "Good Smile Company",
+      "series": "ホロライブEnglish",
+      "date": "2024-02-28",
+      "price": "19,800",
+      "about": "ホロライブイングリッシュより、大人気VTuber「がうらぐら」の「ホロライブSUPER EXPO 2022」バージョンがスケールフィギュアで登場！ COVER社の全面協力のもと、このフィギュアのために描き下ろされた新規イラストを、ポーズや台座などすべての特徴を忠実に再現しました。 流れるような髪は美しく造形され、ウィンクや笑顔とともに可愛さが溢れています。 鮮やかなブルーの衣装のシワや質感も丁寧に造形されています。 そして、足元に寄り添い、フィギュアの可愛さを倍増させる小さなお友達「ブループ」もお忘れなく。 「ホロライブSUPER EXPO 2022」バージョンの「がうらぐら」をぜひお家に迎えてください！",
+      "id": "49"
+    },
+    {
+      "name": "Figuarts ZERO Tanjiro Kamado Rengoku Guard ver.",
+      "image": "https://img.amiami.com/images/product/main/251/FIGURE-183250.jpg",
+      "brand": "BANDAI SPIRITS",
+      "series": "鬼滅の刃",
+      "date": "2025-10-28",
+      "price": "7,920",
+      "about": "サイズ: 約H195mm 材質: PVC、ABS、PC",
+      "id": "50"
+    },
+    {
+      "name": "Comic Masterpiece \"Marvel Comics\" 1/6 Scale Figure Agent Venom",
+      "image": "https://img.amiami.com/images/product/main/251/FIGURE-183311.jpg",
+      "brand": "Hot Toys",
+      "series": "Marvel",
+      "date": "2025-10-28",
+      "price": "45,120",
+      "about": "スケール：1/6 サイズ：全高約32cm 可動箇所：30箇所  [セット内容] 本体 スナイパーライフル マシンガン サブマシンガン（×2） ピストル（×2） 交換用目パーツ（×1セット） 交換用前腕パーツ（シンビオートソード） 触手（×4） 交換用触手パーツ（×4） 交換用手パーツ（×4） 専用台座",
+      "id": "51"
+    },
+    {
+      "name": "\"Captain America: Brave New World\" 1/6 Scale Figure Red Hulk",
+      "image": "https://img.amiami.com/images/product/main/251/FIGURE-183311.jpg",
+      "brand": "Hot Toys",
+      "series": "Marvel",
+      "date": "2026-03-28",
+      "price": "55,700",
+      "about": "スケール: 1/6 サイズ: 約 H47cm 可動ポイント: 20 特徴: 目が可動  [セット内容] 本体 差し替えヘッド 差し替えハンドパーツ(x2)",
+      "id": "52"
+    },
+    {
+      "name": "1/6 Scale Figure Red Hulk",
+      "image": "https://img.amiami.com/images/product/main/251/FIGURE-183312.jpg",
+      "brand": "Hot Toys",
+      "series": "Marvel",
+      "date": "2026-02-05",
+      "price": "56,000",
+      "about": "スケール: 1/6 サイズ: 約 H47cm 可動ポイント: 20 特徴: 目が可動  [セット内容] 本体 差し替えヘッド 差し替えハンドパーツ(x2)",
+      "id": "53"
+    },
+    {
+      "name": "Super Saiyan Vegeta -Awakening Super Saiyan Blood-",
+      "image": "https://img.amiami.com/images/product/main/224/FIGURE-147700.jpg",
+      "brand": "S.H.Figuarts",
+      "series": "ドラゴンボール",
+      "date": "2026-02-05",
+      "price": "3,880",
+      "about": "サイズ：全高約135mm 材質：PVC、ABS  [セット内容] 本体 交換用表情パーツ×2 交換用手首パーツ 左×3、右×4 交換用腕組みパーツ",
+      "id": "54"
+    },
+    {
+      "name": "1/6 Tokusatsu Series Space Ninja Alien Baltan Just Before Illusion Ver.",
+      "image": "https://img.amiami.com/images/product/main/251/FIGURE-183264.jpg",
+      "brand": "CCP JAPAN",
+      "series": "Tokusatsu",
+      "date": "2026-02-05",
+      "price": "24,750",
+      "about": "サイズ：全高約135mm 材質：PVC、ABS  [セット内容] 本体 交換用表情パーツ×2 交換用手首パーツ 左×3、右×4 交換用腕組みパーツ",
+      "id": "55"
     }
   ],
   "rating": [
@@ -473,14 +683,24 @@
       "username": "testuser",
       "pwd": "Farewell",
       "list": {
-        "test": []
+        "test": [
+          33
+        ]
       },
       "id": "249e"
     },
     {
       "username": "AAAA",
       "pwd": "1234",
-      "list": {},
+      "list": {
+        "欲しい": [
+          1,
+          7
+        ],
+        "所有": [
+          10
+        ]
+      },
       "id": "c52e"
     },
     {
@@ -1056,7 +1276,46 @@
     },
     {
       "id": "16",
-      "children": []
+      "children": [
+        {
+          "id": 1740684319266,
+          "poster": "AAAA",
+          "time": "2025, 2月 28, 04:25",
+          "content": "すぐに購入したい",
+          "children": [
+            {
+              "id": 1740684361772,
+              "poster": "AAAA",
+              "time": " 2025, 2月 28, 04:26",
+              "content": "+1",
+              "children": [
+                {
+                  "id": 1740684371433,
+                  "poster": "AAAA",
+                  "time": " 2025, 2月 28, 04:26",
+                  "content": "＋１",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1740684280851,
+          "poster": "AAAA",
+          "time": "2025, 2月 28, 04:24",
+          "content": "完成度の高い",
+          "children": [
+            {
+              "id": 1740684340957,
+              "poster": "AAAA",
+              "time": " 2025, 2月 28, 04:25",
+              "content": "価格も",
+              "children": []
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "17",
@@ -1253,10 +1512,102 @@
     },
     {
       "id": "33",
-      "children": []
+      "children": [
+        {
+          "id": 1740547322111,
+          "poster": "testuser",
+          "time": "2025, 2月 26, 14:22",
+          "content": "1",
+          "children": []
+        }
+      ]
     },
     {
       "id": "34",
+      "children": []
+    },
+    {
+      "id": "35",
+      "children": []
+    },
+    {
+      "id": "36",
+      "children": []
+    },
+    {
+      "id": "37",
+      "children": []
+    },
+    {
+      "id": "38",
+      "children": []
+    },
+    {
+      "id": "39",
+      "children": []
+    },
+    {
+      "id": "40",
+      "children": []
+    },
+    {
+      "id": "41",
+      "children": []
+    },
+    {
+      "id": "42",
+      "children": []
+    },
+    {
+      "id": "43",
+      "children": []
+    },
+    {
+      "id": "44",
+      "children": []
+    },
+    {
+      "id": "45",
+      "children": []
+    },
+    {
+      "id": "46",
+      "children": []
+    },
+    {
+      "id": "47",
+      "children": []
+    },
+    {
+      "id": "48",
+      "children": []
+    },
+    {
+      "id": "49",
+      "children": []
+    },
+    {
+      "id": "50",
+      "children": []
+    },
+    {
+      "id": "51",
+      "children": []
+    },
+    {
+      "id": "52",
+      "children": []
+    },
+    {
+      "id": "53",
+      "children": []
+    },
+    {
+      "id": "54",
+      "children": []
+    },
+    {
+      "id": "55",
       "children": []
     }
   ],
@@ -1447,7 +1798,14 @@
     {
       "id": "1",
       "photoLinks": [
-        "http://res.cloudinary.com/deiobgalh/image/upload/v1739732739/4187271_y9spmh.jpg"
+        "http://res.cloudinary.com/deiobgalh/image/upload/v1739732739/4187271_y9spmh.jpg",
+        "http://res.cloudinary.com/deiobgalh/image/upload/v1740685210/4194046_db1ky2.jpg",
+        "http://res.cloudinary.com/deiobgalh/image/upload/v1740685210/4194048_appidp.jpg",
+        "http://res.cloudinary.com/deiobgalh/image/upload/v1740685210/4213957_z5j2dr.jpg",
+        "http://res.cloudinary.com/deiobgalh/image/upload/v1740685324/3767702_cgofh0.jpg",
+        "http://res.cloudinary.com/deiobgalh/image/upload/v1740685324/4203340_eavisr.jpg",
+        "http://res.cloudinary.com/deiobgalh/image/upload/v1740685325/4203671_msmcug.jpg",
+        "http://res.cloudinary.com/deiobgalh/image/upload/v1740685324/4194047_v1ftc8.jpg"
       ]
     },
     {
@@ -1582,6 +1940,90 @@
     },
     {
       "id": "34",
+      "photoLinks": []
+    },
+    {
+      "id": "35",
+      "photoLinks": []
+    },
+    {
+      "id": "36",
+      "photoLinks": []
+    },
+    {
+      "id": "37",
+      "photoLinks": []
+    },
+    {
+      "id": "38",
+      "photoLinks": []
+    },
+    {
+      "id": "39",
+      "photoLinks": []
+    },
+    {
+      "id": "40",
+      "photoLinks": []
+    },
+    {
+      "id": "41",
+      "photoLinks": []
+    },
+    {
+      "id": "42",
+      "photoLinks": []
+    },
+    {
+      "id": "43",
+      "photoLinks": []
+    },
+    {
+      "id": "44",
+      "photoLinks": []
+    },
+    {
+      "id": "45",
+      "photoLinks": []
+    },
+    {
+      "id": "46",
+      "photoLinks": []
+    },
+    {
+      "id": "47",
+      "photoLinks": []
+    },
+    {
+      "id": "48",
+      "photoLinks": []
+    },
+    {
+      "id": "49",
+      "photoLinks": []
+    },
+    {
+      "id": "50",
+      "photoLinks": []
+    },
+    {
+      "id": "51",
+      "photoLinks": []
+    },
+    {
+      "id": "52",
+      "photoLinks": []
+    },
+    {
+      "id": "53",
+      "photoLinks": []
+    },
+    {
+      "id": "54",
+      "photoLinks": []
+    },
+    {
+      "id": "55",
       "photoLinks": []
     }
   ],
