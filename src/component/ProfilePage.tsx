@@ -1,13 +1,14 @@
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { faUser, faEnvelope, faList } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ProfilePageIndex from './ProfilePageIndex'
-import { UserAuthContext } from '../context/UserAuthProvider'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { RootState } from '../redux/store'
 
 export default function ProfilePage() {
   const [sectionIndex, setSectionIndex] = useState(1)
-  const { currUser } = useContext(UserAuthContext)
+  const currUser = useSelector((state: RootState) => state.user.value)
   const navigate = useNavigate()
 
   useEffect(() => {

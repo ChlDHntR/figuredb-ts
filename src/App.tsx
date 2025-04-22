@@ -1,8 +1,8 @@
-import React, { useState, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import './style/style.scss'
 import { BrowserRouter as Router, Link, Routes, Route } from 'react-router-dom'
-import server from './axios/server.ts'
 import { Import } from './component/Import.js'
+import { useSelector, useDispatch } from 'react-redux'
 import Main from './component/Main.tsx'
 import NavBar from './component/Navbar.tsx'
 import FigurePage from './component/FigurePage.tsx'
@@ -15,19 +15,25 @@ import TradingPage from './component/TradingPage.tsx'
 import UploadPage from './component/UploadPage.tsx'
 import { SocketProvider } from './context/SocketProvider.tsx'
 import ProfilePage from './component/ProfilePage.tsx'
+import { RootState } from './redux/store.ts'
+import { setUser } from './features/userSlice/userSlice.ts'
 
 function App({ user, data }: any) {
-  const [currUser, setCurrUser] = useState(user)
+  //const [currUser, setCurrUser] = useState(user)
   const [messageOn, setMessageOn] = useState(false)
   const [popUp, setPopUp] = useState({ state: false, action: 'register' })
+  const currUser = useSelector((state: RootState) => state.user.value)
+  const dispatch = useDispatch()
 
   const handleClosePopUp = () => {
     setPopUp((prev) => ({ ...prev, state: false }))
   }
 
+  useEffect(() => {
+    dispatch(setUser(user))
+  }, [])
+
   return (
-    <UserAuthProvider value={{ currUser, setCurrUser }}>
-      {/* <SocketProvider> */}
       <FloatMessage>
         <LoginInitProvider value={setPopUp}>
           {popUp.state && (
@@ -86,8 +92,6 @@ function App({ user, data }: any) {
           </Router>
         </LoginInitProvider>
       </FloatMessage>
-      {/* </SocketProvider> */}
-    </UserAuthProvider>
   )
 }
 

@@ -5,6 +5,8 @@ import { AnyTxtRecord } from 'dns'
 import AddTradeCard from './AddTradeCard'
 import { UserAuthContext } from '../context/UserAuthProvider'
 import { FlashMessageContext } from '../context/FloatMessageProvider'
+import { useSelector } from 'react-redux'
+import { RootState } from '../redux/store'
 
 const months = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '1月', '12月']
 
@@ -17,7 +19,7 @@ export default function TradingPage({ data }: any) {
   const [toWho, setToWho] = useState('')
   const textareRef = useRef<HTMLTextAreaElement | null>(null)
   const [isWritingMail, setIsWritingMail] = useState(false)
-  const { currUser } = useContext(UserAuthContext)
+  const currUser = useSelector((state: RootState) => state.user.value)
   const { messageAlert } = useContext(FlashMessageContext)
 
   useEffect(() => {

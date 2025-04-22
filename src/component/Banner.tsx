@@ -3,13 +3,15 @@ import { IconProp, library } from '@fortawesome/fontawesome-svg-core'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { LoginInitContext } from '../context/LoginInitProvider'
-import { UserAuthContext } from '../context/UserAuthProvider'
+import { useSelector } from 'react-redux'
+import { RootState } from '../redux/store'
+
 
 library.add(faChevronRight)
 
 export default function Banner() {
   const setPopUp = useContext(LoginInitContext)
-  const { currUser } = useContext(UserAuthContext)
+  const currUser = useSelector((state: RootState) => state.user.value)
   return (
     <div className='banner box'>
       <h1 className='heading'>フィギュアコレクションへのゲートウェイ</h1>

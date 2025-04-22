@@ -2,12 +2,14 @@ import { useContext, useEffect, useReducer, useRef, useState } from 'react'
 import server from '../axios/server'
 import MailDisplay from './MailDisplay'
 import { UserAuthContext } from '../context/UserAuthProvider'
+import { useSelector } from 'react-redux'
+import { RootState } from '../redux/store'
 
 export default function ProfilePageMail() {
   const [mailData, setMailData] = useState<any[] | null>(null)
   const [selected, setSelected] = useState(1)
   const [selectedMail, setSelectedMail] = useState<any[] | null>(null)
-  const { currUser } = useContext(UserAuthContext)
+  const currUser = useSelector((state: RootState) => state.user.value)
 
   useEffect(() => {
     server.get('mails').then((res) => setMailData(res.data))

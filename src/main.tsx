@@ -1,4 +1,4 @@
-import React, { StrictMode } from 'react'
+import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
@@ -6,22 +6,24 @@ import axios from 'axios'
 import { Import } from './component/Import.tsx'
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate, Navigate } from 'react-router-dom'
 import server from './axios/server.ts'
+import {store} from './redux/store'
+import { Provider } from 'react-redux'
 
 server
   .get('figures')
   .then((response) => {
     let username = localStorage.getItem('currentUser')
-    let foundUser
-    if (username) {
+    let foundUser: string | null = null
       server.get('users').then((response2) => {
         let userData = response2.data
-        foundUser = userData.find((element: any) => element.username === username)
-        createRoot(document.getElementById('root')!).render(<App user={foundUser} data={response.data} />)
-      })
-    } else {
-      createRoot(document.getElementById('root')!).render(<App user={null} data={response.data} />)
-    }
+        foundUser = username? userData.find((element: any) => element.username === username) : null
+        createRoot(document.getElementById('root')!).render(
+          <Provider store={store}>  
+            <App user={foundUser} data={response.data} />
+          </Provider>
+      )})
+
   })
   .catch((err) => {
-    alert('maybe server is not initiated')
+    alert('CHECK SERVER CONNECTION')
   })

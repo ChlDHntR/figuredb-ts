@@ -1,13 +1,14 @@
 import { useEffect, useContext, useRef, useState } from 'react'
-import UserList from './UserList'
-import { UserAuthContext } from '../context/UserAuthProvider'
 import server from '../axios/server'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare, faPlus, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import { FlashMessageContext } from '../context/FloatMessageProvider'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '../redux/store'
+import { setUser } from '../features/userSlice/userSlice'
 
 export default function ProfilePageList() {
-  const { currUser, setCurrUser } = useContext(UserAuthContext)
+  const currUser = useSelector((state: RootState) => state.user.value)
   const figureData = useRef<any[] | null>(null)
   const [forceRR, setForceRR] = useState({})
   const [showList, setShowList] = useState<any>({})
@@ -19,6 +20,7 @@ export default function ProfilePageList() {
     let listnameArr = Object.keys(currUser.list)
     return Object.fromEntries(listnameArr.map((listname) => [listname, false]))
   })
+  const dispatch = useDispatch()
 
   useEffect(() => {
     server.get('figures').then((res: any) => {
@@ -64,10 +66,9 @@ export default function ProfilePageList() {
         return [listname, currUser.list[listname]]
       })
     )
-    let thisUser = { ...currUser }
-    thisUser.list = newList
+    let thisUser = { ...currUser, list: newList }
     server.put(`users/${currUser.id}`, thisUser).then((res) => {
-      setCurrUser(thisUser)
+      dispatch(setUser(thisUser))
       messageAlert(`コレクションが編集されました！`, true)
     })
 
@@ -75,22 +76,24 @@ export default function ProfilePageList() {
   }
 
   const handleDeleteList = (listName: string) => {
-    let thisUser = { ...currUser }
-    console.log(thisUser)
-    console.log(listName)
-    delete thisUser.list[listName]
-    console.log(thisUser)
+    let newList = {...currUser.list}
+    delete newList[listName]
+    let thisUser = { ...currUser, list: newList }
     server.put(`users/${currUser.id}`, thisUser).then((res) => {
-      setCurrUser(thisUser)
+      dispatch(setUser(thisUser))
       messageAlert(`コレクションが削除されました！`, true)
     })
   }
 
   const handleRemoveItem = (listName: string, index: number) => {
-    let thisUser = { ...currUser }
-    thisUser.list[listName].splice(index, 1)
+    let newList = {...currUser.list}
+    let newListArray = [...newList[listName]]
+    newListArray.splice(index, 1)
+    newList[listName] = newListArray
+
+    let thisUser = { ...currUser, list: newList}
     server.put(`users/${currUser.id}`, thisUser).then((res) => {
-      setCurrUser(thisUser)
+      dispatch(setUser(thisUser))
       messageAlert('アイテムが削除されました！', true)
     })
   }
@@ -100,16 +103,17 @@ export default function ProfilePageList() {
       messageAlert('コレクションの名前が必要です', false)
     }
     let newlistName: string = inputRef.current?.value!
-    let thisUser = { ...currUser }
+    let newListObject = {...currUser.list, [newlistName]: []}
+    let thisUser = { ...currUser, list: newListObject }
     if (currUser.list[newlistName]) {
       messageAlert(`'${newlistName}'コレクションが存在しています`, false)
       return
     }
-    thisUser.list[newlistName] = []
+    dispatch(setUser(thisUser))
     server
       .put(`users/${currUser.id}`, thisUser)
       .then(messageAlert(`'${newlistName}'コレクションが作成されました！`, true))
-    setForceRR({})
+   
   }
 
   return (

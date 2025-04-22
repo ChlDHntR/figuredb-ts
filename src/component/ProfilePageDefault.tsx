@@ -1,9 +1,12 @@
 import { useState, useContext, useEffect, useRef } from 'react'
 import { UserAuthContext } from '../context/UserAuthProvider'
+import { setUser } from '../features/userSlice/userSlice'
+import { useSelector, useDispatch } from 'react-redux'
 import server from '../axios/server'
+import { RootState } from '../redux/store'
 
 export default function ProfilePageDefault() {
-  const { currUser, setCurrUser } = useContext(UserAuthContext)
+  const currUser = useSelector((state: RootState) => state.user.value)
   const [username, setUsername] = useState(currUser?.username)
   const [newPassword, setNewPassword] = useState('')
   const [currentPassword, setCurrentPassword] = useState('')
@@ -11,6 +14,8 @@ export default function ProfilePageDefault() {
   const [passwordError, setPasswordError] = useState(false)
   const userNameData = useRef<any[] | null>(null)
   const [errormsg, setErrormsg] = useState('')
+  const dispatch = useDispatch()
+
   useEffect(() => {
     server.get('users').then((response: any) => {
       userNameData.current = response.data.map((element: any) => element.username)
@@ -47,7 +52,7 @@ export default function ProfilePageDefault() {
     }
     server.put(`users/${currUser.id}`, newUser).then((res) => {
       alert('保存完了')
-      setCurrUser(newUser)
+      dispatch(setUser(newUser))
       setCurrentPassword('')
       setNewPassword('')
     })

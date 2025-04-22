@@ -1,14 +1,15 @@
-import { useState, useContext } from 'react'
+import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRightLong, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import GeneralDropDown from './GeneralDropDown'
-import { UserAuthContext } from '../context/UserAuthProvider'
+import { useSelector } from 'react-redux'
+import { RootState } from '../redux/store'
 
 export default function TradingCard({ tradeInfo, figureData, handleWriteMail }: any) {
   const [showDrop, setShowDrop] = useState({ left: null, right: null })
   const leftList = [...tradeInfo.have]
   const rightList = [...tradeInfo.want]
-  const { currUser } = useContext(UserAuthContext)
+  const currUser = useSelector((state: RootState) => state.user.value)
 
   const handleMouseEnter = (key: number, side: string) => {
     setShowDrop((prev) => ({ ...prev, [side]: key }))

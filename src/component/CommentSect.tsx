@@ -6,6 +6,8 @@ import server from '../axios/server'
 import { UserAuthContext } from '../context/UserAuthProvider'
 import { User, CommentDat } from '../interface.type/interface'
 import { PageIdContext } from '../context/PageIdProvider'
+import { useSelector } from 'react-redux'
+import { RootState } from '../redux/store'
 library.add(faComments)
 
 class CommentInfo {
@@ -108,7 +110,7 @@ export default function CommentSect({}) {
   const pageId = useContext(PageIdContext)
   const [commentData, setCommentData] = useState<any>({})
   const [isLoading, setIsLoading] = useState(true)
-  const { currUser }: any = useContext(UserAuthContext)
+  const currUser = useSelector((state: RootState) => state.user.value)
   const addNode = (tree: any, node: CommentInfo, id: any) => {
     if (tree.id == id) {
       tree.children.splice(0, 0, node)

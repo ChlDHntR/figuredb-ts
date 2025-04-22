@@ -3,17 +3,17 @@ import { UserAuthContext } from '../context/UserAuthProvider'
 import server from '../axios/server.ts'
 import { User } from '../interface.type/interface.ts'
 import { FlashMessageContext } from '../context/FloatMessageProvider.tsx'
+import { useDispatch } from 'react-redux'
+import { setUser } from '../features/userSlice/userSlice.ts'
 
 export default function LoginPage({ setPopUp, popUp }: any) {
   const username = useRef<HTMLInputElement>(null)
   const pwd = useRef<HTMLInputElement>(null)
   const reEnterPwd = useRef<HTMLInputElement>(null)
-  const { setCurrUser }: any = useContext(UserAuthContext)
   const [isLogingin, setIsLogingin] = useState(false)
   const [register, setRegister] = useState(popUp.action === 'register' ? true : false)
   const { messageAlert } = useContext(FlashMessageContext)
-
-  console.log(popUp.action)
+  const dispatch = useDispatch()
 
   const handleLogin = () => {
     server.get('users').then((response) => {
@@ -25,8 +25,7 @@ export default function LoginPage({ setPopUp, popUp }: any) {
       }
 
       localStorage.setItem('currentUser', foundUser.username)
-
-      setCurrUser(foundUser)
+      dispatch(setUser(foundUser))
       setIsLogingin(true)
       setTimeout(() => {
         setPopUp(false)

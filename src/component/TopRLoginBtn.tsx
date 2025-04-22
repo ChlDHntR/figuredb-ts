@@ -1,25 +1,25 @@
-import React, { MouseEventHandler, useContext, useState } from 'react'
-import { User } from '../interface.type/interface'
+import { MouseEventHandler, useContext, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconProp, library } from '@fortawesome/fontawesome-svg-core'
 import { faUser, faCaretDown, faArrowRightFromBracket, faL } from '@fortawesome/free-solid-svg-icons'
 import GeneralDropDown from './GeneralDropDown'
-import { UserAuthContext } from '../context/UserAuthProvider'
 import { FlashMessageContext } from '../context/FloatMessageProvider'
 import { LoginInitContext } from '../context/LoginInitProvider'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { removeUser } from '../features/userSlice/userSlice'
 
 library.add(faUser)
 
 export default function TopRLoginBtn({ user }: any) {
   const [showDrop, setShowDrop] = useState(false)
-  const { setCurrUser } = useContext(UserAuthContext)
   const { messageAlert } = useContext(FlashMessageContext)
   const setPopUp: any = useContext(LoginInitContext)
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const handleLogOut = () => {
-    setCurrUser(null)
+    dispatch(removeUser())
     localStorage.clear()
     messageAlert('ログアウトしました', true)
   }

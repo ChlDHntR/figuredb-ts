@@ -1,5 +1,6 @@
 import React, { Fragment, useContext, useState, useEffect, useRef, useMemo, useCallback, act } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useSelector, UseSelector } from 'react-redux'
 import { InputBar } from './SearchBar.tsx'
 import { DropDown } from './DropDown.tsx'
 import { PopUp } from './PopUp.js'
@@ -9,6 +10,7 @@ import { UserAuthContext } from '../context/UserAuthProvider.js'
 import LoginPage from './LoginPage.js'
 import { FigureData, User } from '../interface.type/interface.ts'
 import { LoginInitContext } from '../context/LoginInitProvider.tsx'
+import { RootState } from '../redux/store.ts'
 
 function NavBar({ data }: { data: FigureData[] }) {
   const navigate = useNavigate()
@@ -16,8 +18,8 @@ function NavBar({ data }: { data: FigureData[] }) {
   const [searchList, setSearchList] = useState<any>([])
   const [showdrop, setShowdrop] = useState(true)
   const [isFocus, setIsFocus] = useState(false)
-  const { currUser }: any = useContext(UserAuthContext)
   const setPopUp: any = useContext(LoginInitContext)
+  const currUser = useSelector((state: RootState) => state.user.value)
 
   const handleSearch = useCallback(
     (e: any) => {

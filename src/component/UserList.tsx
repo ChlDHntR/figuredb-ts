@@ -1,10 +1,12 @@
-import React, { useContext, useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import server from '../axios/server'
 import { PageIdContext } from '../context/PageIdProvider'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconProp, library } from '@fortawesome/fontawesome-svg-core'
-import { faLessThanEqual, faPlus, faCaretDown } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import { FlashMessageContext } from '../context/FloatMessageProvider'
+import { setUser } from '../features/userSlice/userSlice'
+import { useDispatch } from 'react-redux'
 
 library.add(faPlus)
 library.add(faCaretDown)
@@ -16,6 +18,7 @@ export default function UserList({ data, currUser }: any) {
   const [forceReRen, setForceReRen] = useState({})
   const id = useContext(PageIdContext)
   const { messageAlert } = useContext(FlashMessageContext)
+  const dispatch = useDispatch()
 
   useEffect(() => {
     if (currUser) {
@@ -37,12 +40,13 @@ export default function UserList({ data, currUser }: any) {
       messageAlert('コレクションの名前が必要です', false)
     }
     let newlistName: string = inputRef.current?.value!
-    let thisUser = { ...currUser }
+    let newListObject = {...currUser.list, [newlistName]: []}
+    let thisUser = { ...currUser, list: newListObject }
     if (currUser.list[newlistName]) {
       messageAlert(`'${newlistName}'コレクションが存在しています`)
       return
     }
-    thisUser.list[newlistName] = []
+    dispatch(setUser(thisUser))
     server
       .put(`users/${currUser.id}`, thisUser)
       .then(messageAlert(`'${newlistName}'コレクションがさくせいされました！`, true))
@@ -50,14 +54,16 @@ export default function UserList({ data, currUser }: any) {
   }
 
   const handleAddToList = (listname: string) => {
-    let updateUserList = { ...currUser }
-    if (updateUserList.list[listname].includes(Number(id))) {
+    if (currUser.list[listname].includes(Number(id))) {
       messageAlert('このアイテムが既にこのコレクションに存在しています', false)
       return
     }
-    updateUserList.list[listname].push(Number(id))
-    server.put(`users/${currUser.id}`, updateUserList)
-    setForceReRen({})
+    let newListArray = [...currUser.list[listname]]
+    newListArray.push(Number(id))
+    let updateUserList = { ...currUser.list, [listname]: newListArray }
+    let updateUser = {...currUser, list: updateUserList}
+    server.put(`users/${currUser.id}`, updateUser)
+    dispatch(setUser(updateUser))
     messageAlert(`${listname}に追加されました`, true)
   }
 
